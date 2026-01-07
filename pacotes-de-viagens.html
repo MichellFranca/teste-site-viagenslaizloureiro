@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pacotes de Viagens e Cruzeiros - Laiz Loureiro"
+    />
+    <title>Pacotes & Cruzeiros | Laiz Loureiro Travel Designer</title>
+
+    <link rel="icon" href="favicolaiz.JPG" type="image/jpeg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/pacotes.css" />
+    <link rel="stylesheet" href="css/cruzeiros.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header-container">
+        <a href="index.html" class="logo">
+          <img src="img/logo-preto.svg" alt="Laiz Loureiro" class="logo-img" />
+        </a>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-icon"
+          ><i class="fas fa-bars"></i
+        ></label>
+
+        <nav class="nav-menu">
+          <label for="nav-toggle" class="nav-close"
+            ><i class="fas fa-times"></i
+          ></label>
+          <ul>
+            <li><a href="promocoes.html">Promoções</a></li>
+            <li>
+              <a href="pacotes-de-viagens.html" class="active">Pacotes</a>
+            </li>
+            <li><a href="fotos-de-viagens.html">Galeria de fotos</a></li>
+            <li><a href="blog.html">Blog da Laiz</a></li>
+          </ul>
+          <a href="https://wa.me/71988580373" class="btn-outline"
+            >Fale Conosco</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="packages-hero">
+        <div class="hero-bg"></div>
+
+        <div class="overlay"></div>
+        <div class="container hero-content">
+          <br />
+          <span class="eyebrow">Curadoria Exclusiva</span>
+          <h1>Próximos Embarques</h1>
+          <p>
+            Selecione o continente ou a opção de Cruzeiros para ver os roteiros
+            disponíveis.
+          </p>
+        </div>
+      </section>
+
+      <div class="container filter-bar-container">
+        <div class="filter-bar">
+          <button
+            id="btn-destaque"
+            class="filter-btn active"
+            onclick="abrirAba(event, 'aba-destaque')"
+          >
+            Destaque
+          </button>
+
+          <button
+            id="btn-europa"
+            class="filter-btn"
+            onclick="abrirAba(event, 'aba-europa')"
+          >
+            Europa
+          </button>
+
+          <button
+            id="btn-asia"
+            class="filter-btn"
+            onclick="abrirAba(event, 'aba-asia')"
+          >
+            Ásia & Oriente
+          </button>
+
+          <button
+            id="btn-americas"
+            class="filter-btn"
+            onclick="abrirAba(event, 'aba-americas')"
+          >
+            Américas
+          </button>
+
+          <button
+            id="btn-brasil"
+            class="filter-btn"
+            onclick="abrirAba(event, 'aba-brasil')"
+          >
+            Brasil
+          </button>
+
+          <a href="cruzeiros.html" class="filter-btn">
+            <i
+              class="fas fa-anchor"
+              style="margin-right: 5px; font-size: 0.8em"
+            ></i>
+            Cruzeiros
+          </a>
+        </div>
+      </div>
+
+      <div id="aba-destaque" class="conteudo-aba" style="display: block">
+        <section class="section-padding">
+          <div class="container">
+            <div class="section-label">Destaque da Temporada</div>
+            <div class="featured-card">
+              <div class="featured-image">
+                <img src="img/roteiro-pacote-destaque.jpg" alt="Escandinávia" />
+                <div class="date-badge">
+                  <span class="day">16</span>
+                  <span class="month">JUL</span>
+                  <span class="year">2026</span>
+                </div>
+              </div>
+
+              <div class="featured-info">
+                <div class="package-meta">
+                  <span
+                    ><i class="fas fa-plane-departure"></i> Saída
+                    Garantida</span
+                  >
+                  <span><i class="fas fa-clock"></i> 22 Dias</span>
+                </div>
+
+                <h2>O Melhor da Escandinávia & Bálticos</h2>
+                <p class="description">
+                  Uma jornada épica pelos fiordes noruegueses e as capitais
+                  imperiais do Báltico. Visitando Copenhague, Bergen, Oslo,
+                  Estocolmo e as joias como Tallinn e Riga.
+                </p>
+
+                <div class="highlights">
+                  <h3>O que está incluído:</h3>
+                  <ul>
+                    <li>
+                      <i class="fas fa-check"></i>
+                      <strong>Fiordes:</strong> Cruzeiros Sognefjord e
+                      Geiranger.
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i>
+                      <strong>Natureza:</strong> Visita à Geleira Briksdal.
+                    </li>
+                    <li>
+                      <i class="fas fa-check"></i>
+                      <strong>Bálticos:</strong> Tours em Tallinn, Riga e
+                      Vilnius.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="package-actions">
+                  <a href="escandinavia-balticos.html" class="btn-primary">
+                    Ver Roteiro Completo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="aba-cruzeiros" class="conteudo-aba" style="display: none">
+        <div class="ocean-header">
+          <div class="ocean-content">
+            <h2>Experiências em Alto Mar</h2>
+            <p>
+              Navegue com elegância e descubra o mundo de uma nova perspectiva.
+            </p>
+          </div>
+          <div class="ocean">
+            <div class="wave"></div>
+            <div class="wave"></div>
+          </div>
+        </div>
+
+        <section class="section-padding" style="background-color: #fdfdfd">
+          <div class="container">
+            <div class="cruises-list">
+              <a
+                href="https://wa.me/71988580373?text=Olá, gostaria de saber mais sobre o Cruzeiro MSC Fantasia saindo de Salvador."
+                target="_blank"
+                class="cruise-card"
+              >
+                <div class="cruise-left">
+                  <div class="cruise-line-logo">MSC</div>
+                  <div class="cruise-ship">Sinfonia</div>
+                  <div class="cruise-icon"><i class="fas fa-ship"></i></div>
+                </div>
+
+                <div class="cruise-center">
+                  <div class="route-display">
+                    <div class="port-info">
+                      <span class="port-label">Embarque</span>
+                      <span class="port-name">Santos</span>
+                    </div>
+                    <div class="route-line">
+                      <span class="duration">4 Noites</span>
+                      <div class="line-graphic"></div>
+                      <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div class="port-info">
+                      <span class="port-label">Desembarque</span>
+                      <span class="port-name">Santos</span>
+                    </div>
+                  </div>
+                  <div class="cruise-dates">
+                    <i class="far fa-calendar-alt"></i> 26 JAN 2026 a 30 JAN
+                    2026
+                  </div>
+                </div>
+
+                <div class="cruise-right">
+                  <span class="cta-text">Consultar Disponibilidade</span>
+                  <span class="cta-btn"
+                    ><i class="fab fa-whatsapp"></i> Falar no Whats</span
+                  >
+                </div>
+              </a>
+
+              <a
+                href="https://wa.me/71988580373?text=Olá, gostaria de saber mais sobre o Cruzeiro MSC Fantasia saindo de Salvador."
+                target="_blank"
+                class="cruise-card"
+              >
+                <div class="cruise-left">
+                  <div class="cruise-line-logo">MSC</div>
+                  <div class="cruise-ship">Sinfonia</div>
+                  <div class="cruise-icon"><i class="fas fa-ship"></i></div>
+                </div>
+
+                <div class="cruise-center">
+                  <div class="route-display">
+                    <div class="port-info">
+                      <span class="port-label">Embarque</span>
+                      <span class="port-name">Santos</span>
+                    </div>
+                    <div class="route-line">
+                      <span class="duration">4 Noites</span>
+                      <div class="line-graphic"></div>
+                      <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div class="port-info">
+                      <span class="port-label">Desembarque</span>
+                      <span class="port-name">Santos</span>
+                    </div>
+                  </div>
+                  <div class="cruise-dates">
+                    <i class="far fa-calendar-alt"></i> 26 JAN 2026 a 30 JAN
+                    2026
+                  </div>
+                </div>
+
+                <div class="cruise-right">
+                  <span class="cta-text">Consultar Disponibilidade</span>
+                  <span class="cta-btn"
+                    ><i class="fab fa-whatsapp"></i> Falar no Whats</span
+                  >
+                </div>
+              </a>
+
+              <a
+                href="https://wa.me/71988580373?text=Olá, gostaria de saber mais sobre o Royal Caribbean saindo de Miami."
+                target="_blank"
+                class="cruise-card"
+              >
+                <div class="cruise-left">
+                  <div class="cruise-line-logo">MSC</div>
+                  <div class="cruise-ship">Preciosa</div>
+                  <div class="cruise-icon"><i class="fas fa-ship"></i></div>
+                </div>
+
+                <div class="cruise-center">
+                  <div class="route-display">
+                    <div class="port-info">
+                      <span class="port-label">Embarque</span>
+                      <span class="port-name">Santos</span>
+                    </div>
+                    <div class="route-line">
+                      <span class="duration">4 Noites</span>
+                      <div class="line-graphic"></div>
+                      <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div class="port-info">
+                      <span class="port-label">Desembarque</span>
+                      <span class="port-name">Santos</span>
+                    </div>
+                  </div>
+                  <div class="cruise-dates">
+                    <i class="far fa-calendar-alt"></i> 29 MAR 2027 a 02 ABR
+                    2027
+                  </div>
+                </div>
+
+                <div class="cruise-right">
+                  <span class="cta-text">Consultar Disponibilidade</span>
+                  <span class="cta-btn"
+                    ><i class="fab fa-whatsapp"></i> Falar no Whats</span
+                  >
+                </div>
+              </a>
+
+              <a
+                href="https://wa.me/71988580373?text=Olá, gostaria de saber mais sobre o Costa Diadema."
+                target="_blank"
+                class="cruise-card"
+              >
+                <div class="cruise-left">
+                  <div class="cruise-line-logo">Costa</div>
+                  <div class="cruise-ship">Diadema</div>
+                  <div class="cruise-icon"><i class="fas fa-ship"></i></div>
+                </div>
+
+                <div class="cruise-center">
+                  <div class="route-display">
+                    <div class="port-info">
+                      <span class="port-label">Embarque</span>
+                      <span class="port-name">Rio de Janeiro</span>
+                    </div>
+                    <div class="route-line">
+                      <span class="duration">3 Noites</span>
+                      <div class="line-graphic"></div>
+                      <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div class="port-info">
+                      <span class="port-label">Desembarque</span>
+                      <span class="port-name">Ilhabela</span>
+                    </div>
+                  </div>
+                  <div class="cruise-dates">
+                    <i class="far fa-calendar-alt"></i> 05 DEZ 2026 a 08 DEZ
+                    2026
+                  </div>
+                </div>
+
+                <div class="cruise-right">
+                  <span class="cta-text">Mini Cruzeiro</span>
+                  <span class="cta-btn"
+                    ><i class="fab fa-whatsapp"></i> Falar no Whats</span
+                  >
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="aba-europa" class="conteudo-aba" style="display: none">
+        <section class="section-padding">
+          <div class="container">
+            <h3 class="list-title">Roteiros na Europa</h3>
+            <div class="roteiros-lista">
+              <a href="leste-europeu.html" class="roteiro-item">
+                <div class="roteiro-data">31 MAI 2026</div>
+                <div class="roteiro-nome">
+                  <h4>Leste Europeu</h4>
+                  <span>Berlim, Praga, Viena, Budapeste e Cracóvia</span>
+                </div>
+                <div class="roteiro-seta">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+
+              <a href="escandinavia-balticos.html" class="roteiro-item">
+                <div class="roteiro-data">16 JUL 2026</div>
+                <div class="roteiro-nome">
+                  <h4>Escandinávia & Países Bálticos</h4>
+                  <span
+                    >Copenhague, Fiordes, Oslo, Estocolmo e Capitais
+                    Bálticas</span
+                  >
+                </div>
+                <div class="roteiro-seta">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+
+              <a href="grecia-turquia.html" class="roteiro-item">
+                <div class="roteiro-data">AGO 2026</div>
+                <div class="roteiro-nome">
+                  <h4>Grécia e Turquia</h4>
+                  <span>Paria, Atenas, Mykonos, Istambul e muito mais</span>
+                </div>
+                <div class="roteiro-seta">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+
+              <a href="costa-amalfitana.html" class="roteiro-item">
+                <div class="roteiro-data">OUT 2026</div>
+                <div class="roteiro-nome">
+                  <h4>Costa Amalfitana & Itália</h4>
+                  <span>Roma, Capri, Sorrento e Puglia</span>
+                </div>
+                <div class="roteiro-seta">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="aba-asia" class="conteudo-aba" style="display: none">
+        <section class="section-padding">
+          <div class="container">
+            <h3 class="list-title">Roteiros na Ásia & Oriente</h3>
+            <div class="roteiros-lista">
+              <a href="china.html" class="roteiro-item">
+                <div class="roteiro-data">MAI 2026</div>
+                <div class="roteiro-nome">
+                  <h4>China</h4>
+                  <span>Beijing, Xian, Zhangjiajie, Hong Kong, e Shanghai</span>
+                </div>
+                <div class="roteiro-seta">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+
+              <a href="india-nepal.html" class="roteiro-item">
+                <div class="roteiro-data">NOV 2026</div>
+                <div class="roteiro-nome">
+                  <h4>India</h4>
+                  <span>Diwali, Rishikesh, Varanasi e Nepal</span>
+                </div>
+                <div class="roteiro-seta">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+
+              <a href="#" class="roteiro-item">
+                <div class="roteiro-data">EM BREVE</div>
+                <div class="roteiro-nome">
+                  <h4>Japão Tradicional</h4>
+                  <span>Tokyo, Kyoto e Osaka</span>
+                </div>
+                <div class="roteiro-seta">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="aba-americas" class="conteudo-aba" style="display: none">
+        <section class="section-padding">
+          <div class="container">
+            <h3 class="list-title">Roteiros nas Américas</h3>
+            <div class="roteiros-lista">
+              <a href="cuba-panama.html" class="roteiro-item">
+                <div class="roteiro-data">08 ABR 2026</div>
+                <div class="roteiro-nome">
+                  <h4>O Melhor de Cuba & Panamá</h4>
+                  <span>Havana, Varadero e Canal do Panamá</span>
+                </div>
+                <div class="roteiro-seta">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+              <a href="santiago-mendoza.html" class="roteiro-item">
+                <div class="roteiro-data">11 FEV 2026</div>
+                <div class="roteiro-nome">
+                  <h4>Carnaval em Santiago & Mendoza</h4>
+                  <span>Vinícolas, Aconcágua, Viña del Mar e Valparaíso</span>
+                </div>
+                <div class="roteiro-seta">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="aba-brasil" class="conteudo-aba" style="display: none">
+        <section class="section-padding">
+          <div class="container">
+            <h3 class="list-title">Roteiros nas Américas</h3>
+            <div class="roteiros-lista">
+              <a href="minas-gerais.html" class="roteiro-item">
+                <div class="roteiro-data">11 FEV 2026</div>
+                <div class="roteiro-nome">
+                  <h4>Semana Santa em Minas Gerais</h4>
+                  <span
+                    >Inhotim, Ouro Preto & Mariana, Gruta de Maquiné e
+                    mais</span
+                  >
+                </div>
+                <div class="roteiro-seta">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"
+            ><img
+              src="img/logo-preto.svg"
+              alt="Laiz Loureiro"
+              class="logo-img-footer"
+          /></a>
+          <p>
+            Sou especializada em transformar viagens em experiências de vida
+            inesquecíveis.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Explorar</h4>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="pacotes-de-viagens.html">Pacotes</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="fotos-de-viagens.html">Galeria</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contato</h4>
+          <ul>
+            <li><i class="fas fa-phone"></i> (71) 98858-0373</li>
+            <li><i class="fas fa-envelope"></i> contato@laizloureiro.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Salvador, Bahia</li>
+          </ul>
+          <div class="social-icons">
+            <a href="https://www.instagram.com/laiz.loureiro" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="SEU_LINK_FACEBOOK_AQUI"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/71988580373" target="_blank"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2025 Laiz Loureiro Viagens.</p>
+        <p>Design criado por Michell França</p>
+      </div>
+    </footer>
+
+    <script src="script-abas.js"></script>
+  </body>
+</html>
