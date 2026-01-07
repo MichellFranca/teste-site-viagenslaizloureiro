@@ -151,7 +151,7 @@ h2 {
 }
 
 /* ============================================================
-   4. HEADER & MENU
+   4. HEADER & MENU (DESKTOP)
    ============================================================ */
 .header {
   position: fixed;
@@ -188,7 +188,7 @@ h2 {
   transform: scale(1.05);
 }
 
-/* Menu Navegação */
+/* Menu Navegação Desktop */
 .nav-menu ul {
   display: flex;
   gap: 30px;
@@ -242,11 +242,10 @@ h2 {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  /* MUDANÇA: 30s para 6 fotos (5s cada) */
   animation: slideAnimation 30s infinite;
 }
 
-/* Delays para 6 fotos (Incremento de 5s) */
+/* Delays para 6 fotos */
 .slide:nth-child(1) {
   animation-delay: 0s;
 }
@@ -256,7 +255,6 @@ h2 {
 .slide:nth-child(3) {
   animation-delay: 10s;
 }
-/* NOVOS SLIDES */
 .slide:nth-child(4) {
   animation-delay: 15s;
 }
@@ -267,24 +265,20 @@ h2 {
   animation-delay: 25s;
 }
 
-/* MATEMÁTICA DA ANIMAÇÃO PARA 6 SLIDES:
-  Cada slide tem ~16.66% do tempo total (100% / 6).
-  Deixamos uma margem para o fade-out suave.
-*/
 @keyframes slideAnimation {
   0% {
     opacity: 0;
     transform: scale(1);
   }
   2% {
-    opacity: 1; /* Aparece rápido */
+    opacity: 1;
   }
   16.66% {
-    opacity: 1; /* Fica visível até completar seu tempo */
-    transform: scale(1.05); /* Zoom suave contínuo */
+    opacity: 1;
+    transform: scale(1.05);
   }
   21.66% {
-    opacity: 0; /* Desaparece suavemente enquanto o próximo entra */
+    opacity: 0;
   }
   100% {
     opacity: 0;
@@ -317,7 +311,6 @@ h2 {
   z-index: 10;
 }
 
-/* Correções de Texto Hero */
 .hero-content h1 {
   color: #ffffff;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -331,7 +324,6 @@ h2 {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Botões do Hero */
 .hero-buttons {
   display: flex;
   align-items: center;
@@ -389,9 +381,6 @@ h2 {
 .dest-card {
   grid-column: span 1;
   grid-row: span 1;
-}
-
-.dest-card {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
@@ -555,16 +544,8 @@ h2 {
   opacity: 0.9;
 }
 
-/* Hover Cruzeiro */
 .cruzeiro-card:hover .cruzeiro-bg img {
   transform: scale(1.1);
-}
-.cruzeiro-card:hover .cruzeiro-content {
-  background: linear-gradient(
-    to top,
-    rgba(5, 20, 40, 0.95) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
 }
 
 /* ============================================================
@@ -620,10 +601,6 @@ h2 {
   color: var(--color-accent);
 }
 
-/* Review Card */
-.swiper-slide {
-  padding: 15px;
-}
 .review-card {
   background: white;
   padding: 40px;
@@ -651,18 +628,6 @@ h2 {
   object-fit: cover;
   border: 3px solid var(--color-accent);
   padding: 2px;
-}
-.author h4 {
-  margin: 0;
-  font-size: 1rem;
-  color: var(--color-primary);
-}
-.author span {
-  font-size: 0.85rem;
-  color: #888;
-}
-.swiper-pagination-bullet-active {
-  background-color: var(--color-accent) !important;
 }
 
 /* ============================================================
@@ -696,7 +661,7 @@ h2 {
   height: 60px;
   width: auto;
   display: block;
-  filter: brightness(0) invert(1); /* Deixa branco */
+  filter: brightness(0) invert(1);
 }
 .footer-content {
   display: grid;
@@ -780,6 +745,8 @@ h2 {
     color: var(--color-primary);
     cursor: pointer;
   }
+
+  /* --- MUDANÇA SOLICITADA: MENU VERTICAL NO MOBILE --- */
   .nav-menu {
     position: fixed;
     top: 0;
@@ -787,31 +754,53 @@ h2 {
     width: 85%;
     height: 100vh;
     background: white;
-    flex-direction: column;
-    justify-content: center;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
     transition: right 0.4s ease;
-    padding: 40px;
+    padding: 60px 40px;
     z-index: 2000;
+
+    /* Garante que os itens fiquem um abaixo do outro */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    gap: 30px !important;
   }
+
+  .nav-menu ul {
+    flex-direction: column !important; /* LINKS EM VERTICAL */
+    align-items: flex-start !important;
+    gap: 20px !important;
+    width: 100%;
+  }
+
+  .nav-menu ul li {
+    width: 100%;
+  }
+
+  .nav-menu ul li a {
+    font-size: 1.2rem; /* Links maiores no celular */
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
   .nav-toggle:checked ~ .nav-menu {
     right: 0;
   }
 
-  /* Hero Mobile (CORREÇÃO DA IMAGEM AQUI) */
+  /* Hero Mobile */
   .hero {
-    height: 70vh; /* Ocupa menos espaço vertical, mostrando mais as laterais da foto */
+    height: 70vh;
     min-height: 500px;
   }
   .hero-content {
-    /* Empurra o texto para baixo para fugir do menu fixo */
-    /* 80px (menu) + 40px (respiro) = 120px */
     padding-top: 120px;
-    padding-bottom: 40px; /* Respiro embaixo também */
+    padding-bottom: 40px;
   }
   .hero-content h1 {
     font-size: 2.2rem;
-    margin-top: 0; /* Remove margens extras que podem atrapalhar */
   }
   .hero-buttons {
     flex-direction: column;
@@ -826,21 +815,15 @@ h2 {
   .cruzeiro-card {
     height: 350px;
   }
-  .cruzeiro-content h3 {
-    font-size: 1.8rem;
-  }
 
   /* Destinos Mobile */
   .destinations-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
-
-  /* Reduzi para 250px para a foto aparecer melhor (menos quadrada) */
   .dest-card,
   .dest-card.large {
     grid-column: span 1;
-    grid-row: auto;
     height: 250px;
   }
 
