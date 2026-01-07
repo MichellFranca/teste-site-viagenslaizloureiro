@@ -30,9 +30,7 @@
 
 .gallery-grid {
   display: grid;
-  /* Define colunas base de aprox 250px */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  /* 'dense' ajuda a preencher buracos vazios automaticamente */
   grid-auto-flow: dense;
   gap: 15px;
 }
@@ -40,81 +38,72 @@
 /* O CARTÃO DA FOTO */
 .gallery-item {
   position: relative;
+  border-radius: var(--radius);
   overflow: hidden;
-  border-radius: 12px;
+  height: 300px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Classes para variar o tamanho (Mosaico) */
-.gallery-item.wide {
-  grid-column: span 2; /* Ocupa 2 colunas */
-}
-
+/* Tamanhos variados para o efeito mosaico */
 .gallery-item.tall {
-  grid-row: span 2; /* Ocupa 2 linhas (altura dupla) */
+  grid-row: span 2;
+  height: 615px;
+}
+.gallery-item.wide {
+  grid-column: span 2;
 }
 
-/* A IMAGEM */
 .gallery-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Garante que preencha o espaço sem distorcer */
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* EFEITO DE ZOOM AO PASSAR O MOUSE */
 .gallery-item:hover img {
   transform: scale(1.1);
 }
 
-/* --- OVERLAY COM INFORMAÇÕES (Aparece no Hover) --- */
+/* Overlay de informações ao passar o mouse */
 .photo-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* Gradiente elegante do preto para transparente */
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.2) 50%,
-    transparent 100%
-  );
-  opacity: 0; /* Invisível por padrão */
-  transition: opacity 0.4s ease;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
   display: flex;
-  align-items: flex-end; /* Texto no fundo */
+  flex-direction: column;
+  justify-content: flex-end;
   padding: 25px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
 }
 
 .gallery-item:hover .photo-overlay {
-  opacity: 1; /* Visível ao passar o mouse */
+  opacity: 1;
 }
 
 .photo-info h3 {
   color: #fff;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin: 0;
-  font-family: var(--font-heading);
-  transform: translateY(10px); /* Começa um pouco mais baixo */
+  transform: translateY(20px);
   transition: transform 0.4s ease;
 }
 
 .photo-info span {
-  color: var(--color-accent); /* Dourado */
+  color: var(--color-accent);
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   display: block;
   margin-top: 5px;
   transform: translateY(10px);
-  transition: transform 0.4s ease 0.1s; /* Delayzinho elegante */
+  transition: transform 0.4s ease 0.1s;
 }
 
-/* Animação do texto subindo */
 .gallery-item:hover .photo-info h3,
 .gallery-item:hover .photo-info span {
   transform: translateY(0);
@@ -136,26 +125,81 @@
 }
 
 /* ============================================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE E MENU VERTICAL MOBILE
    ============================================================ */
 @media screen and (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: 1fr; /* No celular, 1 coluna só */
-    gap: 20px;
+  /* --- AJUSTE DO MENU PARA VERTICAL NO CELULAR --- */
+  /* Mantendo o padrão que funcionou no Index */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease;
+    padding: 60px 40px;
+    z-index: 2000;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    gap: 30px !important;
   }
 
-  /* No celular, removemos o efeito mosaico para ficar uma lista limpa */
-  .gallery-item.wide,
-  .gallery-item.tall {
+  .nav-menu ul {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    width: 100%;
+    display: flex !important;
+  }
+
+  .nav-menu ul li {
+    width: 100%;
+    list-style: none;
+  }
+
+  .nav-menu ul li a {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-toggle:checked ~ .nav-menu {
+    right: 0;
+  }
+
+  /* --- AJUSTES DE RESPONSIVIDADE DA GALERIA --- */
+  .gallery-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr; /* Uma coluna no celular para as fotos não ficarem esmagadas */
+    gap: 10px;
+  }
+
+  .gallery-item,
+  .gallery-item.tall,
+  .gallery-item.wide {
     grid-column: span 1;
     grid-row: span 1;
+    height: 250px; /* Altura fixa confortável para mobile */
   }
 
-  /* Altura fixa para ficar uniforme no celular */
-  .gallery-item {
-    height: 300px;
+  .photo-overlay {
+    opacity: 1; /* No celular, as informações ficam sempre visíveis ou aparecem no toque */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
   }
 
-  /* No celular, o nome do lugar aparece sempre (opcional), 
-       mas aqui mantive no hover/toque para limpar a tela */
+  .photo-info h3,
+  .photo-info span {
+    transform: translateY(0);
+  }
 }
