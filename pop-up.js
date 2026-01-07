@@ -5,11 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtnID = 'btnClose';
     const actionBtnID = 'btnAction';
     
-    // Nome da chave
+    // Nome da chave para controle de exibição
     const campanhaKey = 'popup_visita_diaria'; 
     
-    // Tempo em milissegundos para mostrar de novo (24 horas)
-    // Se quiser testar rápido, troque 24 * ... por 1000 * 60 (1 minuto)
+    // Tempo para mostrar de novo (24 horas)
     const tempoExpiracao = 24 * 60 * 60 * 1000; 
 
     // --- SELETORES ---
@@ -22,9 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const fecharModal = () => {
         if (!modal) return;
         modal.classList.remove('show');
-        setTimeout(() => { modal.style.display = 'none'; }, 400);
+        setTimeout(() => { 
+            modal.style.display = 'none'; 
+        }, 400);
 
-        // Grava A HORA ATUAL (Timestamp) que fechou
+        // Grava o horário que o usuário fechou
         const agora = new Date().getTime();
         localStorage.setItem(campanhaKey, agora.toString());
     };
@@ -32,22 +33,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const abrirModal = () => {
         if (!modal) return;
         modal.style.display = 'flex';
-        setTimeout(() => { modal.classList.add('show'); }, 100);
+        setTimeout(() => { 
+            modal.classList.add('show'); 
+        }, 100);
     };
 
-    // --- LÓGICA INTELIGENTE (VERIFICA O TEMPO) ---
+    // --- LÓGICA DE EXIBIÇÃO ---
     
     const ultimaVezVisto = localStorage.getItem(campanhaKey);
     const agora = new Date().getTime();
 
-    // Se nunca viu OU (Se agora - ultima vez > 24h)
+    // Se nunca viu OU se já passou mais de 24h desde a última vez
     if (!ultimaVezVisto || (agora - parseInt(ultimaVezVisto)) > tempoExpiracao) {
-        setTimeout(abrirModal, 1);
+        setTimeout(abrirModal, 1000); // Abre após 1 segundo de carregamento
     }
 
     // --- EVENTOS ---
     if (closeBtn) closeBtn.addEventListener('click', fecharModal);
     if (actionBtn) actionBtn.addEventListener('click', fecharModal);
+    
+    // Fechar ao clicar fora da imagem (no fundo escuro)
     window.addEventListener('click', (event) => {
         if (event.target === modal) fecharModal();
     });

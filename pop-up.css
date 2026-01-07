@@ -1,0 +1,83 @@
+/* --- FUNDO ESCURO (OVERLAY) --- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Quando o modal está visível */
+.modal-overlay.show {
+  opacity: 1;
+}
+
+/* --- A CAIXA DO POP-UP --- */
+.modal-box {
+  background-color: transparent;
+  width: auto;
+  max-width: 90%;
+  position: relative; /* Importante para o botão de fechar se apoiar */
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-overlay.show .modal-box {
+  transform: translateY(0);
+}
+
+/* --- A IMAGEM --- */
+.modal-img-responsive {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  display: block;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* --- BOTÃO DE FECHAR (FIXO NA ARTE) --- */
+#btnClose {
+  z-index: 10000 !important;
+  position: absolute !important;
+  top: -15px !important; /* Fica um pouco para fora da imagem no topo */
+  right: -15px !important; /* Fica um pouco para fora na lateral */
+
+  width: 40px !important;
+  height: 40px !important;
+
+  background-color: #000 !important; /* Fundo preto para destaque total */
+  color: #fff !important;
+
+  border-radius: 50% !important;
+  border: 2px solid #fff !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  cursor: pointer !important;
+  font-size: 20px !important;
+  font-family: Arial, sans-serif !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajuste para telas pequenas (Celular) */
+@media (max-width: 768px) {
+  #btnClose {
+    top: 10px !important; /* No celular, trazemos o botão para dentro da imagem */
+    right: 10px !important;
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 18px !important;
+  }
+}
