@@ -1,0 +1,95 @@
+/* ============================================================
+   ESTILOS DA PÁGINA DE PROMOÇÕES
+   ============================================================ */
+
+/* --- TÍTULO (Cabeçalho Simples) --- */
+.promo-header {
+  background-color: #eaa967; /* Fundo cinza bem claro */
+  padding: 120px 0 60px 0; /* Espaço superior para o menu */
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.promo-header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 80px;
+  color: #f2eaea;
+  margin-bottom: 15px;
+}
+
+.promo-header p {
+  font-family: "Lato", sans-serif;
+  font-size: 1.4rem;
+  color: #010f12;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- GRID DE CARDS --- */
+.promo-gallery {
+  display: grid;
+  /* MÁGICA RESPONSIVA: 
+       Cria colunas automáticas. 
+       Se a tela for grande, cabem 3 cards. 
+       Se diminuir, cai para 2, depois para 1.
+       O "350px" é a largura mínima ideal do card. */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px; /* Espaço entre os cards */
+  padding: 60px 20px;
+}
+
+/* --- O CARD (Imagem + Botão) --- */
+.promo-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px); /* Sobe um pouquinho ao passar o mouse */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* A IMAGEM DO CARD - NÃO CORTA NADA */
+.promo-card img {
+  width: 100%;
+  height: auto; /* Mantém a proporção original da imagem */
+  display: block;
+}
+
+/* --- BOTÃO "EU QUERO" EMBAIXO DA IMAGEM --- */
+.btn-promo {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #25d366; /* Verde WhatsApp */
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+}
+
+.btn-promo:hover {
+  background-color: #128c7e; /* Verde mais escuro */
+}
+
+/* --- AJUSTES PARA CELULAR --- */
+@media (max-width: 768px) {
+  .promo-header {
+    padding-top: 100px;
+  }
+  .promo-header h1 {
+    font-size: 2.2rem;
+  }
+  .promo-gallery {
+    gap: 30px;
+    padding: 40px 20px;
+  }
+}

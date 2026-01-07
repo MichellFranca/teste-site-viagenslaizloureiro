@@ -1,0 +1,852 @@
+/* ============================================================
+   1. CONFIGURAÇÕES E VARIÁVEIS (DESIGN SYSTEM)
+   ============================================================ */
+:root {
+  --color-primary: #0f172a; /* Azul Escuro */
+  --color-accent: #d4af37; /* Dourado Luxo */
+  --color-text: #334155;
+  --color-bg-light: #f8f9fa;
+  --color-white: #ffffff;
+
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
+
+  --container-width: 1200px;
+  --header-height: 80px;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+/* ============================================================
+   2. RESET GLOBAL
+   ============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+ul {
+  list-style: none;
+}
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.section-padding {
+  padding: 80px 0;
+}
+
+/* ============================================================
+   3. TIPOGRAFIA & BOTÕES
+   ============================================================ */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 15px;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Botão Principal */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+  border: 2px solid var(--color-accent); /* Borda para evitar pulo no hover */
+}
+.btn-primary:hover {
+  background-color: #bfa13d;
+  border-color: #bfa13d;
+  transform: translateY(-3px);
+}
+
+/* Botão Outline (Header) */
+.btn-outline {
+  border: 2px solid var(--color-accent);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Botão Texto (Explorar / Cruzeiro) */
+.btn-text {
+  color: var(--color-white); /* Padrão branco */
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: gap 0.3s ease;
+  cursor: pointer;
+}
+/* Se precisar de cor dourada em fundo branco, usamos uma classe especifica ou contexto */
+.cruzeiro-card .btn-text {
+  color: var(--color-accent);
+}
+.cruzeiro-card:hover .btn-text {
+  color: var(--color-white);
+}
+
+.btn-text:hover {
+  gap: 15px; /* Efeito da setinha andando */
+}
+
+/* ============================================================
+   4. HEADER & MENU
+   ============================================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+}
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Logo Container e Imagem */
+.header-container .logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.logo-img {
+  height: 70px; /* Tamanho Desktop */
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+/* Menu Navegação */
+.nav-menu ul {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.nav-menu ul li a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-primary);
+}
+.nav-menu ul li a:hover {
+  color: var(--color-accent);
+}
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav-toggle,
+.nav-icon,
+.nav-close {
+  display: none;
+}
+
+/* ============================================================
+   5. HERO SLIDESHOW (CONFIGURADO PARA 6 FOTOS)
+   ============================================================ */
+.hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--color-white);
+  margin-top: -80px;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* Camada 0: Slideshow */
+.hero-slideshow,
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  /* MUDANÇA: 30s para 6 fotos (5s cada) */
+  animation: slideAnimation 30s infinite;
+}
+
+/* Delays para 6 fotos (Incremento de 5s) */
+.slide:nth-child(1) {
+  animation-delay: 0s;
+}
+.slide:nth-child(2) {
+  animation-delay: 5s;
+}
+.slide:nth-child(3) {
+  animation-delay: 10s;
+}
+/* NOVOS SLIDES */
+.slide:nth-child(4) {
+  animation-delay: 15s;
+}
+.slide:nth-child(5) {
+  animation-delay: 20s;
+}
+.slide:nth-child(6) {
+  animation-delay: 25s;
+}
+
+/* MATEMÁTICA DA ANIMAÇÃO PARA 6 SLIDES:
+  Cada slide tem ~16.66% do tempo total (100% / 6).
+  Deixamos uma margem para o fade-out suave.
+*/
+@keyframes slideAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  2% {
+    opacity: 1; /* Aparece rápido */
+  }
+  16.66% {
+    opacity: 1; /* Fica visível até completar seu tempo */
+    transform: scale(1.05); /* Zoom suave contínuo */
+  }
+  21.66% {
+    opacity: 0; /* Desaparece suavemente enquanto o próximo entra */
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+/* Camada 1: Overlay (Sombra) */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  z-index: 1;
+}
+
+/* Camada 10: Conteúdo (Texto e Botões) */
+.hero-content {
+  padding-top: 80px;
+  max-width: 800px;
+  margin-left: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Correções de Texto Hero */
+.hero-content h1 {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+  opacity: 1;
+  max-width: 600px;
+  color: #f0f0f0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Botões do Hero */
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* ============================================================
+   6. FEATURES & DESTINOS
+   ============================================================ */
+.features {
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+}
+.features-grid {
+  background: var(--color-white);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  border-right: 1px solid #eee;
+}
+.feature-item:last-child {
+  border-right: none;
+}
+.feature-item i {
+  font-size: 2rem;
+  color: var(--color-accent);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 300px);
+  gap: 20px;
+}
+.dest-card.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.dest-card {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.dest-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  transition: var(--transition);
+}
+.dest-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+.dest-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 1;
+}
+.departure-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-primary);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.departure-badge i {
+  color: var(--color-accent);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+  width: 100%;
+  color: var(--color-white);
+}
+.tag {
+  background: var(--color-accent);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.card-content h3 {
+  color: white;
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: var(--transition);
+  font-weight: 700;
+}
+.dest-card:hover .link-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================================
+   7. SEÇÃO ESPECIAL DE CRUZEIROS
+   ============================================================ */
+.cruzeiros-premium-section {
+  padding: 80px 0;
+  background-color: #fff;
+}
+.cruzeiros-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.cruzeiro-card {
+  position: relative;
+  display: block;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+.cruzeiro-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.cruzeiro-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.cruzeiro-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(
+    to top,
+    rgba(10, 35, 66, 0.9) 0%,
+    rgba(10, 35, 66, 0.4) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+  transition: background 0.5s ease;
+}
+.cruzeiro-tag {
+  background: #d4af37;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 50px;
+  align-self: flex-start;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+.cruzeiro-content h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+.cruzeiro-content p {
+  font-family: "Lato", sans-serif;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  max-width: 90%;
+  opacity: 0.9;
+}
+
+/* Hover Cruzeiro */
+.cruzeiro-card:hover .cruzeiro-bg img {
+  transform: scale(1.1);
+}
+.cruzeiro-card:hover .cruzeiro-content {
+  background: linear-gradient(
+    to top,
+    rgba(5, 20, 40, 0.95) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* ============================================================
+   8. SOBRE & DEPOIMENTOS (SWIPER)
+   ============================================================ */
+.about-section {
+  background-color: var(--color-bg-light);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-image {
+  position: relative;
+}
+.about-image img {
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.badge-experience {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  background: var(--color-accent);
+  color: white;
+  padding: 30px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 700;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+.badge-experience span {
+  font-size: 2rem;
+  line-height: 1;
+  display: block;
+}
+.check-list li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.check-list i {
+  color: var(--color-accent);
+}
+
+/* Review Card */
+.swiper-slide {
+  padding: 15px;
+}
+.review-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.review-card .stars {
+  color: var(--color-accent);
+  margin-bottom: 15px;
+}
+.author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.author img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-accent);
+  padding: 2px;
+}
+.author h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+.author span {
+  font-size: 0.85rem;
+  color: #888;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--color-accent) !important;
+}
+
+/* ============================================================
+   9. CTA & FOOTER
+   ============================================================ */
+.cta-section {
+  background: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 80px 0;
+}
+.cta-section h2 {
+  color: white;
+}
+.cta-section p {
+  color: #ccc;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.footer {
+  background: #0b1120;
+  color: #94a3b8;
+  padding: 60px 0 20px;
+}
+.footer-brand .logo {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.logo-img-footer {
+  height: 60px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1); /* Deixa branco */
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+.footer h4 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+.footer ul li {
+  margin-bottom: 10px;
+}
+.footer ul li a:hover {
+  color: var(--color-accent);
+}
+.footer-copyright {
+  border-top: 1px solid #1e293b;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   10. RESPONSIVIDADE (MOBILE & TABLET)
+   ============================================================ */
+@media screen and (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 30px;
+  }
+  .feature-item {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+  .feature-item:last-child {
+    border-bottom: none;
+  }
+  .destinations-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dest-card.large {
+    grid-column: span 2;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .badge-experience {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Header Mobile */
+  .header {
+    padding: 0 15px;
+  }
+  .logo-img {
+    height: 35px;
+  }
+
+  .nav-icon {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+  .nav-close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease;
+    padding: 40px;
+    z-index: 2000;
+  }
+  .nav-toggle:checked ~ .nav-menu {
+    right: 0;
+  }
+
+  /* Hero Mobile (CORREÇÃO DA IMAGEM AQUI) */
+  .hero {
+    height: 70vh; /* Ocupa menos espaço vertical, mostrando mais as laterais da foto */
+    min-height: 500px;
+  }
+  .hero-content {
+    /* Empurra o texto para baixo para fugir do menu fixo */
+    /* 80px (menu) + 40px (respiro) = 120px */
+    padding-top: 120px;
+    padding-bottom: 40px; /* Respiro embaixo também */
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+    margin-top: 0; /* Remove margens extras que podem atrapalhar */
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Cruzeiros Mobile */
+  .cruzeiros-split-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .cruzeiro-card {
+    height: 350px;
+  }
+  .cruzeiro-content h3 {
+    font-size: 1.8rem;
+  }
+
+  /* Destinos Mobile */
+  .destinations-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  /* Reduzi para 250px para a foto aparecer melhor (menos quadrada) */
+  .dest-card,
+  .dest-card.large {
+    grid-column: span 1;
+    grid-row: auto;
+    height: 250px;
+  }
+
+  /* Footer Mobile */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

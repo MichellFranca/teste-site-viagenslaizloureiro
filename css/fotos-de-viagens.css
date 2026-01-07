@@ -1,0 +1,161 @@
+/* ============================================================
+   ESTILO DA GALERIA (MOSAICO PREMIUM)
+   ============================================================ */
+
+/* --- HERO DA GALERIA (Minimalista) --- */
+.gallery-hero {
+  padding: 120px 0 60px; /* Espaço maior no topo por causa do menu fixo */
+  text-align: center;
+  background-color: var(--color-bg-light);
+}
+
+.gallery-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: var(--color-primary);
+}
+
+.gallery-hero p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* --- GRID MOSAICO --- */
+.gallery-section {
+  padding-bottom: 80px;
+  background-color: var(--color-bg-light);
+}
+
+.gallery-grid {
+  display: grid;
+  /* Define colunas base de aprox 250px */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* 'dense' ajuda a preencher buracos vazios automaticamente */
+  grid-auto-flow: dense;
+  gap: 15px;
+}
+
+/* O CARTÃO DA FOTO */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Classes para variar o tamanho (Mosaico) */
+.gallery-item.wide {
+  grid-column: span 2; /* Ocupa 2 colunas */
+}
+
+.gallery-item.tall {
+  grid-row: span 2; /* Ocupa 2 linhas (altura dupla) */
+}
+
+/* A IMAGEM */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que preencha o espaço sem distorcer */
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* EFEITO DE ZOOM AO PASSAR O MOUSE */
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* --- OVERLAY COM INFORMAÇÕES (Aparece no Hover) --- */
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradiente elegante do preto para transparente */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    transparent 100%
+  );
+  opacity: 0; /* Invisível por padrão */
+  transition: opacity 0.4s ease;
+  display: flex;
+  align-items: flex-end; /* Texto no fundo */
+  padding: 25px;
+}
+
+.gallery-item:hover .photo-overlay {
+  opacity: 1; /* Visível ao passar o mouse */
+}
+
+.photo-info h3 {
+  color: #fff;
+  font-size: 1.3rem;
+  margin: 0;
+  font-family: var(--font-heading);
+  transform: translateY(10px); /* Começa um pouco mais baixo */
+  transition: transform 0.4s ease;
+}
+
+.photo-info span {
+  color: var(--color-accent); /* Dourado */
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 5px;
+  transform: translateY(10px);
+  transition: transform 0.4s ease 0.1s; /* Delayzinho elegante */
+}
+
+/* Animação do texto subindo */
+.gallery-item:hover .photo-info h3,
+.gallery-item:hover .photo-info span {
+  transform: translateY(0);
+}
+
+/* --- RODAPÉ DA GALERIA --- */
+.gallery-footer {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.gallery-footer p {
+  font-size: 1.2rem;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+@media screen and (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; /* No celular, 1 coluna só */
+    gap: 20px;
+  }
+
+  /* No celular, removemos o efeito mosaico para ficar uma lista limpa */
+  .gallery-item.wide,
+  .gallery-item.tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  /* Altura fixa para ficar uniforme no celular */
+  .gallery-item {
+    height: 300px;
+  }
+
+  /* No celular, o nome do lugar aparece sempre (opcional), 
+       mas aqui mantive no hover/toque para limpar a tela */
+}

@@ -1,0 +1,362 @@
+/* ============================================================
+   ESTILOS EXCLUSIVOS: ABA CRUZEIROS
+   ============================================================ */
+
+/* 1. HEADER ANIMADO (O OCEANO) */
+.ocean-header {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+  background: linear-gradient(
+    60deg,
+    rgba(84, 58, 183, 1) 0%,
+    rgba(0, 172, 193, 1) 100%
+  );
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.ocean-content {
+  z-index: 10;
+  position: relative;
+  padding: 0 20px;
+}
+
+.ocean-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.ocean-content p {
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Animação das Ondas (Waves) */
+.waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  margin-bottom: -7px;
+  min-height: 100px;
+  max-height: 150px;
+}
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* 2. CARD DO CRUZEIRO (ESTRUTURA BASE) */
+.cruise-card {
+  display: flex;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
+
+  /* Lógica de Cores: Borda padrão cinza se não houver marca definida */
+  border-left: 6px solid var(--brand-color, #ccc);
+}
+
+.cruise-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Lado Esquerdo (Ticket Visual) */
+.cruise-left {
+  flex: 0 0 30%;
+  background: #f9fcff;
+  border-right: 2px dashed #dceeff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Bolinhas do "picote" do ticket */
+.cruise-left::after,
+.cruise-left::before {
+  content: "";
+  position: absolute;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: #fff; /* cor do fundo da página */
+  border-radius: 50%;
+  box-shadow: inset 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+.cruise-left::before {
+  top: -10px;
+}
+.cruise-left::after {
+  bottom: -10px;
+}
+
+.cruise-logo img {
+  max-width: 120px;
+  margin-bottom: 15px;
+}
+
+.cruise-icon {
+  font-size: 2.5rem;
+  margin-top: 10px;
+}
+
+/* Usa a cor da marca no ícone, se houver */
+.cruise-icon i {
+  color: var(--brand-color, #a4c8e9);
+}
+
+/* Lado Direito (Informações) */
+.cruise-right {
+  flex: 1;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cruise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+.cruise-header h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+.cruise-price {
+  text-align: right;
+}
+.cruise-price span {
+  display: block;
+  font-size: 0.85rem;
+  color: #777;
+}
+.cruise-price strong {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+/* Rota Visual */
+.route-display {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+.route-point {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+.route-line {
+  flex: 1;
+  height: 2px;
+  background: #e0e0e0;
+  position: relative;
+}
+.route-line::after {
+  content: "\f21a"; /* Ícone de barco do FontAwesome */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ccc;
+  font-size: 0.8rem;
+}
+
+.cruise-details ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.cruise-details li {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cruise-details li i {
+  color: #1ebc57;
+}
+
+/* Botão de Ação */
+.cta-btn {
+  /* Cor padrão (verde) se não tiver marca, ou cor da marca */
+  background: var(--brand-color, #1ebc57);
+  color: var(--btn-text-color, #fff);
+  padding: 12px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: filter 0.3s, box-shadow 0.3s, transform 0.2s;
+  align-self: flex-start; /* Alinha à esquerda */
+}
+
+.cruise-card:hover .cta-btn {
+  filter: brightness(1.1); /* Clareia levemente ao passar o mouse */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================
+   3. IDENTIDADE VISUAL POR MARCA (NOVO CÓDIGO)
+   Adicione a classe da empresa junto com 'cruise-card' no HTML
+   Ex: <div class="cruise-card msc">
+   ============================================================ */
+
+/* MSC Cruzeiros */
+.cruise-card.msc {
+  --brand-color: #003594; /* Azul Escuro Institucional */
+  --btn-text-color: #ffffff;
+}
+
+/* Costa Cruzeiros */
+.cruise-card.costa {
+  --brand-color: #ffcc00; /* Amarelo Costa */
+  --btn-text-color: #333333; /* Texto escuro para contraste */
+}
+
+/* Pullmantur (Exemplo) */
+.cruise-card.pullmantur {
+  --brand-color: #69c9ff; /* Azul Claro */
+  --btn-text-color: #ffffff;
+}
+
+/* Royal Caribbean */
+.cruise-card.royal {
+  --brand-color: #1a3c75; /* Azul Royal */
+  --btn-text-color: #ffffff;
+}
+
+/* Disney Cruise Line */
+.cruise-card.disney {
+  --brand-color: #e31837; /* Vermelho Disney */
+  --btn-text-color: #ffffff;
+}
+
+/* Norwegian (NCL) */
+.cruise-card.ncl {
+  --brand-color: #00a5df; /* Azul Ciano NCL */
+  --btn-text-color: #ffffff;
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+@media (max-width: 768px) {
+  .ocean-header {
+    height: 220px;
+  }
+  .ocean-content h1 {
+    font-size: 2rem;
+  }
+
+  .cruise-card {
+    flex-direction: column;
+  }
+  .cruise-left {
+    border-right: none;
+    border-bottom: 2px dashed #dceeff;
+    flex-direction: row;
+    gap: 20px;
+    padding: 15px;
+    justify-content: flex-start;
+  }
+  .cruise-left::after,
+  .cruise-left::before {
+    display: none; /* Remove picote no mobile para simplificar */
+  }
+
+  .cruise-logo img {
+    margin-bottom: 0;
+    max-width: 80px;
+  }
+
+  .cruise-icon {
+    margin-top: 0;
+    margin-left: auto;
+    font-size: 2rem;
+  }
+
+  .route-display {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-left: 10px;
+    border-left: 2px solid #eee;
+    padding-left: 15px;
+  }
+
+  .route-line {
+    display: none; /* Esconde a linha horizontal no mobile */
+  }
+
+  .cta-btn {
+    width: 100%; /* Botão largura total no celular */
+  }
+}
