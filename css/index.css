@@ -197,29 +197,32 @@ h2 {
 }
 
 /* ============================================================
-   5. HERO FLEXBOX (A CORREÇÃO DEFINITIVA)
+   5. HERO (CORREÇÃO DE ESTRUTURA)
    ============================================================ */
 .hero {
   position: relative;
-  /* Altura total */
   height: 100vh;
-  /* Flexbox para centralizar o texto PERFEITAMENTE */
+  /* Flexbox para centralizar */
   display: flex;
+  /* IMPORTANTE: Garante que os itens fiquem empilhados (z-index) e não lado a lado */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: -80px; /* Compensa o menu fixo */
+  margin-top: -80px;
   overflow: hidden;
   color: #fff;
 }
 
-/* O Slider fica Absoluto no fundo */
+/* O Slider fica no fundo absoluto */
 .hero-bg-slider {
   position: absolute !important;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* Fica atrás */
+  z-index: 0; /* Camada mais baixa */
 }
 
 .hero-bg-slider .swiper-slide picture,
@@ -227,7 +230,6 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Foca no topo para não cortar cabeças */
   object-position: center top;
 }
 
@@ -245,12 +247,13 @@ h2 {
   z-index: 1;
 }
 
-/* O Conteúdo fica Relativo (respeita o Flexbox do pai) */
+/* O Conteúdo fica na frente */
 .hero-content {
   position: relative;
   z-index: 10;
   width: 100%;
   text-align: center;
+  padding-top: 60px; /* Um ajuste visual para o centro ótico */
 }
 
 .hero-content h1 {
@@ -275,7 +278,7 @@ h2 {
 }
 
 /* ============================================================
-   6. SEÇÕES GERAIS (MANTIDAS)
+   6. OUTRAS SEÇÕES
    ============================================================ */
 .features {
   margin-top: -60px;
@@ -609,7 +612,7 @@ h2 {
 }
 
 /* ============================================================
-   10. RESPONSIVIDADE (TABLET & MOBILE)
+   7. RESPONSIVIDADE (MOBILE)
    ============================================================ */
 @media screen and (max-width: 1024px) {
   .features-grid {
@@ -657,7 +660,7 @@ h2 {
     cursor: pointer;
   }
 
-  /* MENU MOBILE VERTICAL */
+  /* MENU VERTICAL */
   .nav-menu {
     position: fixed;
     top: 0;
@@ -695,16 +698,19 @@ h2 {
     right: 0;
   }
 
-  /* HERO MOBILE (TEXTO AJUSTADO E CENTRALIZADO) */
+  /* HERO MOBILE (FIXADO PARA COLUNA) */
   .hero {
-    height: 90vh; /* Altura boa para mobile */
-    align-items: center; /* Centraliza Verticalmente */
-    justify-content: center; /* Centraliza Horizontalmente */
+    height: 90vh;
+    flex-direction: column; /* OBRIGATÓRIO: Empilha background e conteúdo */
+    justify-content: center;
+    align-items: center;
   }
 
-  /* Removemos o posicionamento absoluto do conteúdo no mobile para ele fluir */
   .hero-content {
-    padding-top: 40px; /* Um pequeno respiro do topo */
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
   }
 
   .eyebrow {
