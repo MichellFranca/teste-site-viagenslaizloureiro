@@ -50,16 +50,14 @@
           ></label>
           <ul>
             <li>
-              <a href="pacotes-de-viagens.html" target="_blank">Pacotes</a>
+              <a href="pacotes-de-viagens.html">Pacotes</a>
             </li>
             <li>
-              <a href="fotos-de-viagens.html" target="_blank"
-                >Galeria de fotos</a
-              >
+              <a href="fotos-de-viagens.html">Galeria de fotos</a>
             </li>
-            <li><a href="#depoimentos" target="_blank">Depoimentos</a></li>
-            <li><a href="blog.html" target="_blank">Blog da Laiz</a></li>
-            <li><a href="promocoes.html" target="_blank">Promoções</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="blog.html">Blog da Laiz</a></li>
+            <li><a href="promocoes.html">Promoções</a></li>
           </ul>
           <a
             href="https://wa.me/71988580373"
@@ -72,36 +70,76 @@
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-slideshow">
-          <div
-            class="slide"
-            style="background-image: url('img/hero-paris.jpg')"
-          ></div>
-          <div
-            class="slide"
-            style="background-image: url('img/index-curacau.jpg')"
-          ></div>
-          <div
-            class="slide"
-            style="background-image: url('img/index-suica.png')"
-          ></div>
-          <div
-            class="slide"
-            style="background-image: url('img/navio-laiz.jpg')"
-          ></div>
-          <div
-            class="slide"
-            style="background-image: url('img/disney.jpg')"
-          ></div>
-          <div
-            class="slide"
-            style="background-image: url('img/index-resort.jpg')"
-          ></div>
-        </div>
-        <div class="overlay"></div>
+      <section class="hero swiper myHeroSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="img/hero-paris-mobile.jpg"
+              />
+              <img src="img/hero-paris.jpg" alt="Paris" />
+            </picture>
+            <div class="overlay"></div>
+          </div>
 
-        <div class="container hero-content">
+          <div class="swiper-slide">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="img/index-curacau-mobile.jpg"
+              />
+              <img src="img/index-curacau.jpg" alt="Curacau" />
+            </picture>
+            <div class="overlay"></div>
+          </div>
+
+          <div class="swiper-slide">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="img/index-suica-mobile.png"
+              />
+              <img src="img/index-suica.png" alt="Suíça" />
+            </picture>
+            <div class="overlay"></div>
+          </div>
+
+          <div class="swiper-slide">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="img/navio-laiz-mobile.jpg"
+              />
+              <img src="img/navio-laiz.jpg" alt="Navio" />
+            </picture>
+            <div class="overlay"></div>
+          </div>
+
+          <div class="swiper-slide">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="img/disney-mobile.jpg"
+              />
+              <img src="img/disney.jpg" alt="Disney" />
+            </picture>
+            <div class="overlay"></div>
+          </div>
+
+          <div class="swiper-slide">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="img/index-resort-mobile.jpg"
+              />
+              <img src="img/index-resort.jpg" alt="Resort" />
+            </picture>
+            <div class="overlay"></div>
+          </div>
+        </div>
+
+        <div class="hero-content">
           <span class="eyebrow">Consultoria de Viagens Exclusiva</span>
           <h1>O mundo espera por você.<br />Nós cuidamos dos detalhes.</h1>
           <p>
@@ -561,10 +599,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-      var swiper = new Swiper(".myTestimonials", {
-        slidesPerView: 1 /* 1 por vez no celular */,
+      /* --- SWIPER DE DEPOIMENTOS --- */
+      var swiperTestimonials = new Swiper(".myTestimonials", {
+        slidesPerView: 1,
         spaceBetween: 30,
-        loop: true /* Infinito */,
+        loop: true,
         autoplay: {
           delay: 4000,
           disableOnInteraction: false,
@@ -575,8 +614,19 @@
         },
         breakpoints: {
           768: {
-            slidesPerView: 2 /* 2 por vez no tablet/PC */,
+            slidesPerView: 2,
           },
+        },
+      });
+
+      /* --- NOVO SWIPER DO HERO (TOPO) --- */
+      var swiperHero = new Swiper(".myHeroSwiper", {
+        loop: true,
+        effect: "fade" /* Efeito suave de transição */,
+        speed: 1000,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
         },
       });
     </script>
