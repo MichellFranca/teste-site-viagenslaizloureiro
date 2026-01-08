@@ -2,8 +2,8 @@
    1. CONFIGURAÇÕES E VARIÁVEIS (DESIGN SYSTEM)
    ============================================================ */
 :root {
-  --color-primary: #0f172a; /* Azul Escuro */
-  --color-accent: #d4af37; /* Dourado Luxo */
+  --color-primary: #0f172a;
+  --color-accent: #d4af37;
   --color-text: #334155;
   --color-bg-light: #f8f9fa;
   --color-white: #ffffff;
@@ -79,6 +79,7 @@ h2 {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 15px;
 }
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -196,32 +197,40 @@ h2 {
 }
 
 /* ============================================================
-   5. HERO SWIPER (NOVA VERSÃO CORRIGIDA)
+   5. HERO FLEXBOX (A CORREÇÃO DEFINITIVA)
    ============================================================ */
 .hero {
-  height: 100vh;
   position: relative;
-  overflow: hidden;
+  /* Altura total */
+  height: 100vh;
+  /* Flexbox para centralizar o texto PERFEITAMENTE */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: -80px; /* Compensa o menu fixo */
-  background-color: #000;
+  overflow: hidden;
+  color: #fff;
 }
 
-/* Garante altura total para o swiper */
-.hero .swiper-wrapper,
-.hero .swiper-slide {
+/* O Slider fica Absoluto no fundo */
+.hero-bg-slider {
+  position: absolute !important;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 0; /* Fica atrás */
 }
 
-/* As imagens e pictures ocupam 100% */
-.hero .swiper-slide picture,
-.hero .swiper-slide img {
+.hero-bg-slider .swiper-slide picture,
+.hero-bg-slider .swiper-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Foca no topo para não cortar cabeças */
+  object-position: center top;
 }
 
-/* Overlay escuro */
 .hero .overlay {
   position: absolute;
   top: 0;
@@ -236,16 +245,11 @@ h2 {
   z-index: 1;
 }
 
-/* Conteúdo centralizado e fixo por cima dos slides */
+/* O Conteúdo fica Relativo (respeita o Flexbox do pai) */
 .hero-content {
-  position: absolute;
-  top: 55%; /* Levemente abaixo do centro */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 900px;
-  padding: 0 20px;
+  position: relative;
   z-index: 10;
+  width: 100%;
   text-align: center;
 }
 
@@ -253,7 +257,6 @@ h2 {
   color: #ffffff;
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
 }
-
 .hero-content p {
   font-size: 1.25rem;
   margin-bottom: 40px;
@@ -263,7 +266,6 @@ h2 {
   margin-left: auto;
   margin-right: auto;
 }
-
 .hero-buttons {
   display: flex;
   justify-content: center;
@@ -273,7 +275,7 @@ h2 {
 }
 
 /* ============================================================
-   6. FEATURES & DESTINOS (MANTIDO ORIGINAL)
+   6. SEÇÕES GERAIS (MANTIDAS)
    ============================================================ */
 .features {
   margin-top: -60px;
@@ -303,12 +305,6 @@ h2 {
   color: var(--color-accent);
 }
 
-.section-header {
-  text-align: center;
-  margin-bottom: 50px;
-  max-width: 700px;
-  margin: 0 auto 50px;
-}
 .destinations-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -400,9 +396,6 @@ h2 {
   transform: translateX(0);
 }
 
-/* ============================================================
-   7. SEÇÃO ESPECIAL DE CRUZEIROS (MANTIDO)
-   ============================================================ */
 .cruzeiros-premium-section {
   padding: 80px 0;
   background-color: #fff;
@@ -485,9 +478,6 @@ h2 {
   transform: scale(1.1);
 }
 
-/* ============================================================
-   8. SOBRE & DEPOIMENTOS (MANTIDO)
-   ============================================================ */
 .about-section {
   background-color: var(--color-bg-light);
 }
@@ -565,9 +555,6 @@ h2 {
   padding: 2px;
 }
 
-/* ============================================================
-   9. CTA & FOOTER (MANTIDO)
-   ============================================================ */
 .cta-section {
   background: var(--color-primary);
   color: white;
@@ -656,31 +643,21 @@ h2 {
 }
 
 @media screen and (max-width: 768px) {
-  /* Header Mobile */
   .header {
     padding: 0 15px;
   }
   .logo-img {
     height: 35px;
   }
-
-  .nav-icon {
-    display: block;
-    font-size: 1.5rem;
-    color: var(--color-primary);
-    cursor: pointer;
-  }
+  .nav-icon,
   .nav-close {
     display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
     font-size: 1.5rem;
     color: var(--color-primary);
     cursor: pointer;
   }
 
-  /* MENU VERTICAL MOBILE */
+  /* MENU MOBILE VERTICAL */
   .nav-menu {
     position: fixed;
     top: 0;
@@ -698,18 +675,15 @@ h2 {
     align-items: flex-start !important;
     gap: 30px !important;
   }
-
   .nav-menu ul {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 20px !important;
     width: 100%;
   }
-
   .nav-menu ul li {
     width: 100%;
   }
-
   .nav-menu ul li a {
     font-size: 1.2rem;
     display: block;
@@ -717,25 +691,34 @@ h2 {
     padding: 10px 0;
     border-bottom: 1px solid #f0f0f0;
   }
-
   .nav-toggle:checked ~ .nav-menu {
     right: 0;
   }
 
-  /* HERO MOBILE (CORRIGIDO) */
+  /* HERO MOBILE (TEXTO AJUSTADO E CENTRALIZADO) */
   .hero {
-    height: 85vh; /* Altura confortável para mobile */
+    height: 90vh; /* Altura boa para mobile */
+    align-items: center; /* Centraliza Verticalmente */
+    justify-content: center; /* Centraliza Horizontalmente */
   }
 
+  /* Removemos o posicionamento absoluto do conteúdo no mobile para ele fluir */
   .hero-content {
-    /* Desce o texto para fugir do menu fixo e centraliza */
-    top: 60%;
-    padding: 0 15px;
+    padding-top: 40px; /* Um pequeno respiro do topo */
   }
 
+  .eyebrow {
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+  }
   .hero-content h1 {
-    font-size: 2rem;
-    line-height: 1.1;
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+  .hero-content p {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
   }
 
   .hero-buttons {
@@ -743,14 +726,13 @@ h2 {
     gap: 15px;
     width: 100%;
   }
-
   .btn-primary,
   .btn-outline {
     width: 100%;
     max-width: 300px;
   }
 
-  /* OUTRAS SEÇÕES MOBILE */
+  /* Outros */
   .cruzeiros-split-grid {
     grid-template-columns: 1fr;
     height: auto;
