@@ -698,11 +698,13 @@ h2 {
     right: 0;
   }
 
-  /* HERO MOBILE (FIXADO PARA COLUNA) */
+  /* HERO MOBILE (TEXTO MAIS BAIXO - CORRIGIDO) */
   .hero {
     height: 90vh;
-    flex-direction: column; /* OBRIGATÓRIO: Empilha background e conteúdo */
-    justify-content: center;
+    flex-direction: column; /* Empilha Fundo e Texto */
+
+    /* MUDANÇA: Alinha no topo para empurrar com padding depois */
+    justify-content: flex-start;
     align-items: center;
   }
 
@@ -711,6 +713,10 @@ h2 {
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
+
+    /* MUDANÇA: Empurra o texto 180px para baixo */
+    padding-top: 180px;
+    padding-bottom: 40px;
   }
 
   .eyebrow {
