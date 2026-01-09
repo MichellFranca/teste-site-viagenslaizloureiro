@@ -546,12 +546,17 @@
     line-height: 1.2;
   }
 
-  /* --- AJUSTE SOLICITADO PARA OS DESTAQUES NO MOBILE --- */
+  /* --- AJUSTE DESTAQUES NO MOBILE (QUEBRA DE LINHA) --- */
   .destaques-lista li {
-    align-items: flex-start; /* Joga o ícone para o topo */
+    /* Transforma cada item em uma coluna vertical */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px; /* Espaço entre o ícone e o texto */
   }
+
+  /* O Ícone agora fica sozinho na linha de cima (ou junto com um título se tiver) */
   .destaques-lista li i {
-    margin-top: 5px; /* Alinha com a primeira linha de texto */
-    flex-shrink: 0; /* Garante que o ícone não diminua */
+    margin-bottom: 5px; /* Empurra o texto para baixo */
+    font-size: 1.2rem; /* Pode aumentar um pouco o ícone para destaque */
   }
 }
