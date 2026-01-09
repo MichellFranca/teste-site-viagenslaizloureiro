@@ -63,17 +63,20 @@
 
     <main>
       <section class="packages-hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg-container">
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="img/aviao-decolando-mobile.jpg"
+            />
+            <img src="img/aviao-decolando.jpg" alt="Viagens pelo Mundo" />
+          </picture>
+          <div class="overlay"></div>
+        </div>
 
-        <div class="overlay"></div>
-        <div class="container hero-content">
-          <br />
-          <span class="eyebrow">Curadoria Exclusiva</span>
-          <h1>Próximos Embarques</h1>
-          <p>
-            Selecione o continente ou a opção de Cruzeiros para ver os roteiros
-            disponíveis.
-          </p>
+        <div class="hero-content">
+          <h1>Pacotes de Viagens</h1>
+          <p>Experiências exclusivas desenhadas para você.</p>
         </div>
       </section>
 
