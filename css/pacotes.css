@@ -6,7 +6,6 @@
    1. HEROS (TOPO)
    ------------------------------------------------------------ */
 
-/* Estrutura Comum para o Fundo (Imagem via HTML) */
 .hero-bg-container {
   position: absolute;
   top: 0;
@@ -18,24 +17,22 @@
 .hero-bg-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Cobre todo o espaço */
-  object-position: center; /* Centraliza a imagem */
+  object-fit: cover;
+  object-position: center;
 }
 
-/* HERO DA PÁGINA PRINCIPAL (Pacotes) - Alto e Imponente */
 .packages-hero {
   position: relative;
-  height: 700px; /* Altura fixa bonita no PC */
+  height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: -80px; /* Compensa o menu fixo */
+  margin-top: -80px;
   color: #fff;
   overflow: hidden;
 }
 
-/* HERO DAS PÁGINAS INTERNAS (Roteiros) - Mais baixo */
 .roteiro-hero {
   position: relative;
   height: 65vh;
@@ -49,7 +46,6 @@
   overflow: hidden;
 }
 
-/* Camada Escura (Overlay) Comum a ambos */
 .packages-hero .overlay,
 .roteiro-hero .overlay {
   background: linear-gradient(
@@ -65,7 +61,6 @@
   height: 100%;
 }
 
-/* Conteúdo do Texto (Título) */
 .hero-content {
   position: relative;
   z-index: 10;
@@ -105,7 +100,7 @@
 }
 
 /* ------------------------------------------------------------
-   2. BARRA DE FILTROS (PÁGINA PRINCIPAL)
+   2. BARRA DE FILTROS
    ------------------------------------------------------------ */
 .filter-bar-container {
   margin-top: -30px;
@@ -142,12 +137,11 @@
 }
 
 /* ------------------------------------------------------------
-   3. DESTAQUES E CARDS (SEU DESIGN MANTIDO)
+   3. DESTAQUES E CARDS
    ------------------------------------------------------------ */
 .section-padding {
   padding: 80px 0;
 }
-
 .section-label {
   text-align: center;
   font-family: "Lato", sans-serif;
@@ -166,7 +160,6 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   flex-wrap: wrap;
 }
-
 .featured-image {
   flex: 1;
   position: relative;
@@ -248,6 +241,7 @@
   margin-bottom: 30px;
 }
 
+/* ESTILO PADRÃO (DESKTOP) DA LISTA */
 .highlights {
   background: #f9f9f9;
   padding: 25px;
@@ -291,7 +285,7 @@
   transform: translateY(-3px);
 }
 
-/* Destaque "Dark Premium" para Guia */
+/* Destaque "Dark Premium" */
 .destaque-guia {
   display: inline-flex;
   align-items: center;
@@ -379,8 +373,7 @@
 }
 
 /* ------------------------------------------------------------
-   5. LAYOUT INTERNO DOS ROTEIROS (Grid + Sidebar)
-   *Necessário para páginas como china.html, grecia.html, etc*
+   5. LAYOUT INTERNO DOS ROTEIROS
    ------------------------------------------------------------ */
 .roteiro-container {
   max-width: 1200px;
@@ -393,7 +386,6 @@
   gap: 60px;
 }
 
-/* Texto Esquerda */
 .roteiro-texto h2 {
   font-size: 2rem;
   color: #0f172a;
@@ -408,6 +400,8 @@
   line-height: 1.8;
   margin-bottom: 20px;
 }
+
+/* LISTA DE DESTAQUES (PADRÃO DESKTOP) */
 .destaques-lista {
   list-style: none;
   margin: 30px 0;
@@ -428,7 +422,6 @@
   color: #d4af37;
 }
 
-/* Sidebar Direita (Card de Preço) */
 .roteiro-sidebar {
   position: relative;
 }
@@ -495,16 +488,15 @@
   text-decoration: none;
 }
 .btn-comprar:hover {
+  background-color: #20bd5a;
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-  background-color: #20bd5a;
 }
 
 /* ------------------------------------------------------------
    6. RESPONSIVIDADE GERAL
    ------------------------------------------------------------ */
 @media (max-width: 900px) {
-  /* Grid de roteiro vira 1 coluna */
   .roteiro-grid {
     grid-template-columns: 1fr;
   }
@@ -515,7 +507,6 @@
 }
 
 @media (max-width: 768px) {
-  /* O QUE JÁ TINHA */
   .featured-card {
     flex-direction: column;
   }
@@ -528,34 +519,58 @@
     display: none;
   }
 
-  /* NOVO HERO RESPONSIVO */
+  /* Hero */
   .packages-hero,
   .roteiro-hero {
     height: 75vh;
   }
-
   .hero-content {
     padding-top: 140px;
     padding-bottom: 40px;
   }
-
   .packages-hero h1,
   .roteiro-hero h1 {
     font-size: 2.2rem;
     line-height: 1.2;
   }
 
-  /* --- CORREÇÃO DEFINITIVA DA LISTA --- */
-  .destaques-lista li {
-    /* Mantém lado a lado, mas alinha no topo */
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 12px;
+  /* --- MÁGICA DOS DESTAQUES NO MOBILE (ESTILO CARTÃO) --- */
+
+  /* 1. Removemos a caixa cinza grande e deixamos transparente */
+  .destaques-lista {
+    background: transparent;
+    padding: 0;
+    border: none;
   }
 
+  /* 2. Cada ITEM da lista vira um "Cartão" Branco */
+  .destaques-lista li {
+    display: flex;
+    flex-direction: column; /* Coloca o ícone EM CIMA do texto */
+    align-items: center; /* Centraliza o ícone */
+
+    background: #fff; /* Fundo Branco */
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px; /* Espaço entre os cartões */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra leve */
+
+    /* Alinhamento do texto */
+    text-align: justify; /* Texto quadradinho */
+    line-height: 1.6;
+  }
+
+  /* 3. Estilo do Ícone (Destaque Central) */
   .destaques-lista li i {
-    /* Desce o ícone uns pixels para alinhar com a letra maiúscula */
-    margin-top: 5px;
-    flex-shrink: 0; /* Trava o tamanho do ícone */
+    font-size: 1.5rem; /* Ícone Grande */
+    color: #d4af37;
+    margin-bottom: 15px; /* Empurra o texto para baixo */
+
+    /* O Sublinhado Dourado */
+    padding-bottom: 10px;
+    border-bottom: 3px solid #d4af37;
+    width: 40px; /* Largura do sublinhado */
+    text-align: center;
   }
 }
