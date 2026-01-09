@@ -1,362 +1,360 @@
 /* ============================================================
-   ESTILOS EXCLUSIVOS: ABA CRUZEIROS
+   ESTILOS EXCLUSIVOS: CRUZEIROS (FINAL)
    ============================================================ */
 
-/* 1. HEADER ANIMADO (O OCEANO) */
+/* 1. HEADER DO OCEANO (CORRIGIDO PARA O MENU FIXO) */
 .ocean-header {
   position: relative;
   width: 100%;
-  height: 300px;
-  background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+
+  /* AJUSTE TÉCNICO: Puxa para cima e empurra conteúdo para baixo */
+  height: 450px;
+  margin-top: -80px; /* Fica atrás do menu */
+  padding-top: 140px; /* Texto desce para não cortar */
+
+  /* Fundo de segurança e gradiente */
+  background-color: #0a2342;
   background: linear-gradient(
     60deg,
-    rgba(84, 58, 183, 1) 0%,
+    rgba(10, 35, 66, 1) 0%,
     rgba(0, 172, 193, 1) 100%
   );
+
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #fff;
-  margin-bottom: 30px;
-  border-radius: 0 0 20px 20px;
+  margin-bottom: 50px;
+  border-radius: 0 0 30px 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 1;
 }
 
 .ocean-content {
   z-index: 10;
   position: relative;
   padding: 0 20px;
+  max-width: 900px;
 }
 
 .ocean-content h1 {
   font-family: "Playfair Display", serif;
   font-size: 3rem;
-  margin-bottom: 10px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .ocean-content p {
-  font-family: "Lato", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 300;
-  max-width: 600px;
-  margin: 0 auto;
+  font-size: 1.1rem;
+  opacity: 0.95;
+  color: #e0f2fe;
 }
 
-/* Animação das Ondas (Waves) */
-.waves {
+/* ONDAS */
+.wave {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1000% 1000% 0 0;
   position: absolute;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100px;
-  margin-bottom: -7px;
-  min-height: 100px;
-  max-height: 150px;
+  z-index: 1;
 }
-
-.parallax > use {
-  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
 }
-.parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
-}
-.parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
-}
-.parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
-}
-.parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
-}
-
-@keyframes move-forever {
-  0% {
-    transform: translate3d(-90px, 0, 0);
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-25%);
   }
   100% {
-    transform: translate3d(85px, 0, 0);
+    transform: translateX(1);
   }
 }
 
-/* 2. CARD DO CRUZEIRO (ESTRUTURA BASE) */
-.cruise-card {
+/* 2. CARD TÉCNICO (COM CORES) */
+.cruise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 80px;
+  position: relative;
+  z-index: 2; /* Garante que fique acima de tudo */
+}
+
+.cruise-ticket {
   display: flex;
   background: #fff;
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  margin-bottom: 30px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #f0f0f0;
-
-  /* Lógica de Cores: Borda padrão cinza se não houver marca definida */
-  border-left: 6px solid var(--brand-color, #ccc);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.cruise-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+.cruise-ticket:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: #d4af37;
 }
 
-/* Lado Esquerdo (Ticket Visual) */
-.cruise-left {
-  flex: 0 0 30%;
-  background: #f9fcff;
-  border-right: 2px dashed #dceeff;
+/* --- LADO ESQUERDO: MARCA (CORES) --- */
+.ticket-brand {
+  width: 25%;
+  background-color: #f8fafc; /* Cor padrão */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
-  position: relative;
+  justify-content: center;
+  padding: 30px;
+  border-right: 2px dashed #cbd5e1;
+  text-align: center;
 }
 
-/* Bolinhas do "picote" do ticket */
-.cruise-left::after,
-.cruise-left::before {
-  content: "";
-  position: absolute;
-  right: -10px;
-  width: 20px;
-  height: 20px;
-  background: #fff; /* cor do fundo da página */
-  border-radius: 50%;
-  box-shadow: inset 2px 0 5px rgba(0, 0, 0, 0.05);
+/* CORES DAS EMPRESAS (IMPORTANTE) */
+/* MSC: Azul Claro */
+.ticket-brand.msc {
+  background-color: #e0f2fe;
+  border-right-color: #bae6fd;
 }
-.cruise-left::before {
-  top: -10px;
-}
-.cruise-left::after {
-  bottom: -10px;
+.ticket-brand.msc .brand-icon,
+.ticket-brand.msc .ship-highlight {
+  color: #0369a1;
 }
 
-.cruise-logo img {
-  max-width: 120px;
-  margin-bottom: 15px;
+/* COSTA: Amarelo Claro */
+.ticket-brand.costa {
+  background-color: #fef9c3;
+  border-right-color: #fde047;
+}
+.ticket-brand.costa .brand-icon,
+.ticket-brand.costa .ship-highlight {
+  color: #a16207;
 }
 
-.cruise-icon {
-  font-size: 2.5rem;
-  margin-top: 10px;
+/* PULLMANTUR: Branco */
+.ticket-brand.pullmantur {
+  background-color: #ffffff;
+  border-right-color: #e2e8f0;
+}
+.ticket-brand.pullmantur .brand-icon {
+  color: #334155;
 }
 
-/* Usa a cor da marca no ícone, se houver */
-.cruise-icon i {
-  color: var(--brand-color, #a4c8e9);
+/* ROYAL: Azul Royal */
+.ticket-brand.royal {
+  background-color: #eff6ff;
+  border-right-color: #bfdbfe;
+}
+.ticket-brand.royal .brand-icon {
+  color: #1e40af;
 }
 
-/* Lado Direito (Informações) */
-.cruise-right {
-  flex: 1;
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+/* DISNEY: Vermelho Claro */
+.ticket-brand.disney {
+  background-color: #fee2e2;
+  border-right-color: #fecaca;
+}
+.ticket-brand.disney .brand-icon {
+  color: #b91c1c;
 }
 
-.cruise-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 15px;
+.brand-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
 }
-.cruise-header h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem;
-  color: #333;
-  margin: 0;
-}
-.cruise-price {
-  text-align: right;
-}
-.cruise-price span {
-  display: block;
+.brand-name {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
   font-size: 0.85rem;
-  color: #777;
+  letter-spacing: 1px;
 }
-.cruise-price strong {
+.ship-highlight {
+  font-family: "Playfair Display", serif;
   font-size: 1.4rem;
-  color: #2c3e50;
+  margin-top: 5px;
+  line-height: 1.2;
   font-weight: 700;
 }
 
-/* Rota Visual */
-.route-display {
+/* Lado Direito: Informações */
+.ticket-info {
+  width: 75%;
+  padding: 30px;
   display: flex;
-  align-items: center;
-  gap: 15px;
-  margin: 20px 0;
-  color: #555;
-  font-size: 0.95rem;
-}
-.route-point {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 600;
-}
-.route-line {
-  flex: 1;
-  height: 2px;
-  background: #e0e0e0;
-  position: relative;
-}
-.route-line::after {
-  content: "\f21a"; /* Ícone de barco do FontAwesome */
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #ccc;
-  font-size: 0.8rem;
+  flex-direction: column;
 }
 
-.cruise-details ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
+.ticket-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.ticket-header h3 {
+  font-size: 1.6rem;
+  color: #0f172a;
+  margin-bottom: 8px;
+  font-family: "Playfair Display", serif;
+}
+.ticket-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* GRID DE DADOS */
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
+  background: #fdfdfd;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #f1f1f1;
   margin-bottom: 20px;
 }
-.cruise-details li {
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+}
+.data-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.data-value {
   font-size: 0.9rem;
-  color: #666;
+  color: #334155;
+  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.cruise-details li i {
-  color: #1ebc57;
+.data-value i {
+  color: #d4af37;
+  font-size: 0.8rem;
 }
 
-/* Botão de Ação */
-.cta-btn {
-  /* Cor padrão (verde) se não tiver marca, ou cor da marca */
-  background: var(--brand-color, #1ebc57);
-  color: var(--btn-text-color, #fff);
-  padding: 12px 25px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 700;
+/* Linha do Itinerário */
+.itinerary-row {
+  grid-column: span 4;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  margin-top: 5px;
+}
+.itinerary-text {
+  font-style: italic;
+  color: #555;
   font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Botão */
+.ticket-actions {
+  margin-top: auto;
+  align-self: flex-end;
+}
+.btn-ticket {
+  background-color: #0f172a;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.8rem;
+  transition: background 0.3s;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  transition: filter 0.3s, box-shadow 0.3s, transform 0.2s;
-  align-self: flex-start; /* Alinha à esquerda */
 }
-
-.cruise-card:hover .cta-btn {
-  filter: brightness(1.1); /* Clareia levemente ao passar o mouse */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+.btn-ticket:hover {
+  background-color: #d4af37;
+  transform: translateY(-2px);
 }
 
 /* ============================================================
-   3. IDENTIDADE VISUAL POR MARCA (NOVO CÓDIGO)
-   Adicione a classe da empresa junto com 'cruise-card' no HTML
-   Ex: <div class="cruise-card msc">
-   ============================================================ */
-
-/* MSC Cruzeiros */
-.cruise-card.msc {
-  --brand-color: #003594; /* Azul Escuro Institucional */
-  --btn-text-color: #ffffff;
-}
-
-/* Costa Cruzeiros */
-.cruise-card.costa {
-  --brand-color: #ffcc00; /* Amarelo Costa */
-  --btn-text-color: #333333; /* Texto escuro para contraste */
-}
-
-/* Pullmantur (Exemplo) */
-.cruise-card.pullmantur {
-  --brand-color: #69c9ff; /* Azul Claro */
-  --btn-text-color: #ffffff;
-}
-
-/* Royal Caribbean */
-.cruise-card.royal {
-  --brand-color: #1a3c75; /* Azul Royal */
-  --btn-text-color: #ffffff;
-}
-
-/* Disney Cruise Line */
-.cruise-card.disney {
-  --brand-color: #e31837; /* Vermelho Disney */
-  --btn-text-color: #ffffff;
-}
-
-/* Norwegian (NCL) */
-.cruise-card.ncl {
-  --brand-color: #00a5df; /* Azul Ciano NCL */
-  --btn-text-color: #ffffff;
-}
-
-/* ============================================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE (CELULAR)
    ============================================================ */
 @media (max-width: 768px) {
   .ocean-header {
-    height: 220px;
+    height: 400px;
+    padding-top: 120px;
+    margin-top: -80px;
   }
   .ocean-content h1 {
     font-size: 2rem;
+    line-height: 1.2;
+  }
+  .ocean-content p {
+    font-size: 1rem;
+    padding: 0 10px;
   }
 
-  .cruise-card {
+  .cruise-ticket {
     flex-direction: column;
   }
-  .cruise-left {
+
+  .ticket-brand {
+    width: 100%;
     border-right: none;
-    border-bottom: 2px dashed #dceeff;
+    border-bottom: 2px dashed rgba(0, 0, 0, 0.1);
+    padding: 20px;
     flex-direction: row;
-    gap: 20px;
-    padding: 15px;
-    justify-content: flex-start;
-  }
-  .cruise-left::after,
-  .cruise-left::before {
-    display: none; /* Remove picote no mobile para simplificar */
+    justify-content: space-between;
+    text-align: left;
+    align-items: center;
   }
 
-  .cruise-logo img {
-    margin-bottom: 0;
-    max-width: 80px;
-  }
-
-  .cruise-icon {
-    margin-top: 0;
-    margin-left: auto;
+  .brand-icon {
     font-size: 2rem;
+    margin-bottom: 0;
+  }
+  .ship-highlight {
+    font-size: 1.2rem;
+    margin-top: 0;
   }
 
-  .route-display {
-    flex-direction: column;
-    align-items: flex-start;
+  .ticket-info {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .data-grid {
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
-    margin-left: 10px;
-    border-left: 2px solid #eee;
-    padding-left: 15px;
+  }
+  .itinerary-row {
+    grid-column: span 2;
   }
 
-  .route-line {
-    display: none; /* Esconde a linha horizontal no mobile */
+  .ticket-actions {
+    width: 100%;
   }
-
-  .cta-btn {
-    width: 100%; /* Botão largura total no celular */
+  .btn-ticket {
+    width: 100%;
+    justify-content: center;
   }
 }
