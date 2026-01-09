@@ -57,11 +57,18 @@
 
     <main>
       <section class="packages-hero">
-        <div
-          class="hero-bg"
-          style="background-image: url('img/berlin-hero-roteiro.jpg')"
-        ></div>
-        <div class="overlay"></div>
+        <div class="hero-bg-container">
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="img/roteiro-viena-mobile.jpg"
+            />
+
+            <img src="img/viena.jpg" alt="Leste Europeu" />
+          </picture>
+          <div class="overlay"></div>
+        </div>
+
         <div class="container hero-content">
           <br /><br />
           <span class="eyebrow">Saída Especial: 31 de Maio de 2026</span>
@@ -128,33 +135,45 @@
 
               <div class="highlights">
                 <h3>Destaques Exclusivos:</h3>
-                <ul>
+                <ul class="destaques-lista">
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Alemanha & Polônia:</strong> Berlim, Varsóvia e a
-                    histórica Cracóvia.
+                    <div class="texto-destaque">
+                      <strong>Alemanha & Polônia:</strong> Berlim, Varsóvia e a
+                      histórica Cracóvia.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Cidades Imperiais:</strong> A beleza de Praga e
-                    Budapeste.
+                    <div class="texto-destaque">
+                      <strong>Cidades Imperiais:</strong> A beleza de Praga e
+                      Budapeste.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Viena Artística:</strong> Palácio de Hofburg e
-                    Catedral de Santo Estêvão.
+                    <div class="texto-destaque">
+                      <strong>Viena Artística:</strong> Palácio de Hofburg e
+                      Catedral de Santo Estêvão.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Cultura:</strong> Visitas panorâmicas com guias
-                    locais especializados.
+                    <div class="texto-destaque">
+                      <strong>Cultura:</strong> Visitas panorâmicas com guias
+                      locais especializados.
+                    </div>
                   </li>
+
                   <li>
-                    <span class="destaque-guia">
-                      <i class="fas fa-flag"></i>
+                    <i class="fas fa-flag"></i>
+                    <div class="texto-destaque">
                       <strong>Exclusividade:</strong> Guia desde o Brasil
                       (mínimo 20 pessoas).
-                    </span>
+                    </div>
                   </li>
                 </ul>
               </div>

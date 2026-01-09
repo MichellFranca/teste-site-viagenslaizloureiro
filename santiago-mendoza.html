@@ -57,11 +57,18 @@
 
     <main>
       <section class="packages-hero">
-        <div
-          class="hero-bg"
-          style="background-image: url('img/roteiro-chile-hero.jpg')"
-        ></div>
-        <div class="overlay"></div>
+        <div class="hero-bg-container">
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="img/roteiro-chile-mobile.jpg"
+            />
+
+            <img src="img/chile.jpg" alt="Leste Europeu" />
+          </picture>
+          <div class="overlay"></div>
+        </div>
+
         <div class="container hero-content">
           <br /><br />
           <span class="eyebrow">Carnaval: 11 a 18 de Fevereiro de 2026</span>
@@ -127,29 +134,45 @@
 
               <div class="highlights">
                 <h3>Destaques Exclusivos:</h3>
-                <ul>
-                  <li>
-                    <i class="fas fa-check"></i> <strong>Santiago:</strong> City
-                    Tour panorâmico e visita a Viña del Mar e Valparaíso.
-                  </li>
+                <ul class="destaques-lista">
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Vinhos Chilenos:</strong> Tour na famosa Concha y
-                    Toro.
+                    <div class="texto-destaque">
+                      <strong>Santiago:</strong> City Tour panorâmico e visita a
+                      Viña del Mar e Valparaíso.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Mendoza:</strong> Visita a renomadas vinícolas e
-                    fábrica de azeite.
+                    <div class="texto-destaque">
+                      <strong>Vinhos Chilenos:</strong> Tour na famosa Concha y
+                      Toro.
+                    </div>
                   </li>
-                  <li>
-                    <i class="fas fa-check"></i> <strong>Aventura:</strong> Tour
-                    Alta Montanha (Monte Aconcágua).
-                  </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Hospedagem:</strong> Hotéis selecionados em
-                    localizações privilegiadas.
+                    <div class="texto-destaque">
+                      <strong>Mendoza:</strong> Visita a renomadas vinícolas e
+                      fábrica de azeite.
+                    </div>
+                  </li>
+
+                  <li>
+                    <i class="fas fa-check"></i>
+                    <div class="texto-destaque">
+                      <strong>Aventura:</strong> Tour Alta Montanha (Monte
+                      Aconcágua).
+                    </div>
+                  </li>
+
+                  <li>
+                    <i class="fas fa-check"></i>
+                    <div class="texto-destaque">
+                      <strong>Hospedagem:</strong> Hotéis selecionados em
+                      localizações privilegiadas.
+                    </div>
                   </li>
                 </ul>
               </div>

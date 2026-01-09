@@ -57,11 +57,18 @@
 
     <main>
       <section class="packages-hero">
-        <div
-          class="hero-bg"
-          style="background-image: url('img/roteiro-turquia-hero.jpg')"
-        ></div>
-        <div class="overlay"></div>
+        <div class="hero-bg-container">
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="img/roteiro-turquia-mobile.jpg"
+            />
+
+            <img src="img/turquia.jpg" alt="Grecia e Turquia" />
+          </picture>
+          <div class="overlay"></div>
+        </div>
+
         <div class="container hero-content">
           <br /><br />
           <span class="eyebrow">Saída Especial: 19 de Agosto de 2026</span>
@@ -134,36 +141,53 @@
 
               <div class="highlights">
                 <h3>Destaques do Roteiro:</h3>
-                <ul>
+                <ul class="destaques-lista">
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Paris:</strong> Estadas estratégicas na Cidade Luz
-                    na ida e no retorno para suavizar a viagem.
+                    <div class="texto-destaque">
+                      <strong>Paris:</strong> Estadas estratégicas na Cidade Luz
+                      na ida e no retorno para suavizar a viagem.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Grécia Clássica:</strong> Visita panorâmica em
-                    Atenas e a espetacular Acrópole.
+                    <div class="texto-destaque">
+                      <strong>Grécia Clássica:</strong> Visita panorâmica em
+                      Atenas e a espetacular Acrópole.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Ilhas Mágicas:</strong> O pôr do sol vulcânico de
-                    Santorini e a cosmopolita Mykonos.
+                    <div class="texto-destaque">
+                      <strong>Ilhas Mágicas:</strong> O pôr do sol vulcânico de
+                      Santorini e a cosmopolita Mykonos.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Istambul:</strong> Navegação pelo Bósforo, Mesquita
-                    Azul, Hagia Sophia e o Grande Bazar.
+                    <div class="texto-destaque">
+                      <strong>Istambul:</strong> Navegação pelo Bósforo,
+                      Mesquita Azul, Hagia Sophia e o Grande Bazar.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Capadócia:</strong> As incríveis Chaminés das Fadas
-                    e o Museu ao ar livre de Göreme.
+                    <div class="texto-destaque">
+                      <strong>Capadócia:</strong> As incríveis Chaminés das
+                      Fadas e o Museu ao ar livre de Göreme.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Tesouros Naturais:</strong> As piscinas de algodão
-                    de Pamukkale e as ruínas de Éfeso.
+                    <div class="texto-destaque">
+                      <strong>Tesouros Naturais:</strong> As piscinas de algodão
+                      de Pamukkale e as ruínas de Éfeso.
+                    </div>
                   </li>
                 </ul>
               </div>

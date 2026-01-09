@@ -56,11 +56,19 @@
 
     <main>
       <section class="packages-hero">
-        <div
-          class="hero-bg"
-          style="background-image: url('../img/escandinavia-montanhas.jpg')"
-        ></div>
-        <div class="overlay"></div>
+        <div class="hero-bg-container">
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="img/roteiro-estocolmo-mobile.jpg"
+            />
+
+            <img src="img/estocolmo.jpg" alt="Turquia" />
+          </picture>
+          <div class="overlay"></div>
+        </div>
+
+        
         <div class="container hero-content">
           <span class="eyebrow">Saída Especial: 16 de Julho de 2026</span>
           <h1>O Melhor da Escandinávia <br/>& Países Bálticos</h1>
@@ -130,34 +138,42 @@
 
               <div class="highlights">
                 <h3>Destaques Exclusivos:</h3>
-                <ul>
-                  <li>
-                    <i class="fas fa-check"></i>
-                    <strong>Navegação:</strong> Cruzeiros pelos Fiordes
-                    Sognefjord e Geiranger.
-                  </li>
-                  <li>
-                    <i class="fas fa-check"></i>
-                    <strong>Natureza:</strong> Visita à impressionante Geleira
-                    de Briksdal.
-                  </li>
-                  <li>
-                    <i class="fas fa-check"></i>
-                    <strong>História:</strong> Tallinn, Riga e Vilnius (Joias do
-                    Báltico).
-                  </li>
-                  <li>
-                    <i class="fas fa-check"></i>
-                    <strong>Conforto:</strong> Travessia luxuosa de navio entre
-                    Estocolmo e Helsínquia.
-                  </li>
-                  <li>
-                    <span class="destaque-guia">
-                      <i class="fas fa-flag"></i>
-                      <strong>Exclusividade:</strong> Guia desde o Brasil.
-                    </span>
-                  </li>
-                </ul>
+                <ul class="destaques-lista">
+  <li>
+    <i class="fas fa-check"></i>
+    <div class="texto-destaque">
+      <strong>Navegação:</strong> Cruzeiros pelos Fiordes Sognefjord e Geiranger.
+    </div>
+  </li>
+
+  <li>
+    <i class="fas fa-check"></i>
+    <div class="texto-destaque">
+      <strong>Natureza:</strong> Visita à impressionante Geleira de Briksdal.
+    </div>
+  </li>
+
+  <li>
+    <i class="fas fa-check"></i>
+    <div class="texto-destaque">
+      <strong>História:</strong> Tallinn, Riga e Vilnius (Joias do Báltico).
+    </div>
+  </li>
+
+  <li>
+    <i class="fas fa-check"></i>
+    <div class="texto-destaque">
+      <strong>Conforto:</strong> Travessia luxuosa de navio entre Estocolmo e Helsínquia.
+    </div>
+  </li>
+
+  <li>
+    <i class="fas fa-flag"></i>
+    <div class="texto-destaque">
+      <strong>Exclusividade:</strong> Guia desde o Brasil.
+    </div>
+  </li>
+</ul>
               </div>
 
               <div class="package-actions">

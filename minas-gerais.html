@@ -57,11 +57,18 @@
 
     <main>
       <section class="packages-hero">
-        <div
-          class="hero-bg"
-          style="background-image: url('img/roteiro-minas-hero.jpg')"
-        ></div>
-        <div class="overlay"></div>
+        <div class="hero-bg-container">
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="img/roteiro-viena-mobile.jpg"
+            />
+
+            <img src="img/viena.jpg" alt="Leste Europeu" />
+          </picture>
+          <div class="overlay"></div>
+        </div>
+
         <div class="container hero-content">
           <br /><br />
           <span class="eyebrow">Saída Especial: 01 de Abril de 2026</span>
@@ -128,31 +135,45 @@
 
               <div class="highlights">
                 <h3>Destaques do Roteiro:</h3>
-                <ul>
+                <ul class="destaques-lista">
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Inhotim:</strong> Ingresso incluso para o maior
-                    museu a céu aberto do mundo.
+                    <div class="texto-destaque">
+                      <strong>Inhotim:</strong> Ingresso incluso para o maior
+                      museu a céu aberto do mundo.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Ouro Preto & Mariana:</strong> Tour completo pelas
-                    joias do barroco mineiro.
+                    <div class="texto-destaque">
+                      <strong>Ouro Preto & Mariana:</strong> Tour completo pelas
+                      joias do barroco mineiro.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Gruta de Maquiné:</strong> A beleza subterrânea em
-                    Cordisburgo.
+                    <div class="texto-destaque">
+                      <strong>Gruta de Maquiné:</strong> A beleza subterrânea em
+                      Cordisburgo.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Belo Horizonte:</strong> Pampulha (obras de
-                    Niemeyer) e o famoso Mercado Central.
+                    <div class="texto-destaque">
+                      <strong>Belo Horizonte:</strong> Pampulha (obras de
+                      Niemeyer) e o famoso Mercado Central.
+                    </div>
                   </li>
+
                   <li>
                     <i class="fas fa-check"></i>
-                    <strong>Sabará:</strong> Visita ao Museu do Ouro e igrejas
-                    históricas.
+                    <div class="texto-destaque">
+                      <strong>Sabará:</strong> Visita ao Museu do Ouro e igrejas
+                      históricas.
+                    </div>
                   </li>
                 </ul>
               </div>
