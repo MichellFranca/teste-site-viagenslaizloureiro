@@ -141,6 +141,23 @@ h2 {
 }
 
 /* ============================================================
+   AJUSTE DE TÍTULOS CENTRALIZADOS
+   (Apenas para "Próximas Saídas" e "Depoimentos")
+   ============================================================ */
+.section-header {
+  text-align: center; /* Centraliza o texto */
+  max-width: 800px; /* Limita a largura para ficar elegante */
+  margin: 0 auto 50px auto; /* Centraliza o bloco na tela e dá espaço embaixo */
+}
+
+/* Ajuste fino para o parágrafo abaixo do título */
+.section-header p {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-top: 10px;
+}
+
+/* ============================================================
    4. HEADER & MENU
    ============================================================ */
 .header {

@@ -1,42 +1,63 @@
 /* ============================================================
-   ESTILO DE PACOTES (DESIGN ATUAL) + NOVA LISTA
+   ESTILO GERAL: PACOTES (PRINCIPAL) E ROTEIROS (INTERNOS)
    ============================================================ */
 
-/* HERO (Mantido) */
-/* HERO CORRIGIDO */
+/* ------------------------------------------------------------
+   1. HEROS (TOPO)
+   ------------------------------------------------------------ */
+
+/* Estrutura Comum para o Fundo (Imagem via HTML) */
+.hero-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.hero-bg-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cobre todo o espaço */
+  object-position: center; /* Centraliza a imagem */
+}
+
+/* HERO DA PÁGINA PRINCIPAL (Pacotes) - Alto e Imponente */
 .packages-hero {
   position: relative;
-  /* Altura fixa bonita no Computador */
-  height: 700px;
+  height: 700px; /* Altura fixa bonita no PC */
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  margin-top: -80px; /* Compensa o menu fixo */
   color: #fff;
-  margin-top: -80px;
   overflow: hidden;
 }
 
-.packages-hero .hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  /* A IMAGEM VEM PARA CÁ */
-  background-image: url("../img/aviao-decolando.jpg");
-
-  background-size: cover;
-  background-position: center center;
-  z-index: -1;
+/* HERO DAS PÁGINAS INTERNAS (Roteiros) - Mais baixo */
+.roteiro-hero {
+  position: relative;
+  height: 65vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: -80px;
+  color: #fff;
+  overflow: hidden;
 }
-.packages-hero .overlay {
+
+/* Camada Escura (Overlay) Comum a ambos */
+.packages-hero .overlay,
+.roteiro-hero .overlay {
   background: linear-gradient(
     135deg,
-    rgba(15, 23, 42, 0.9) 0%,
-    rgba(15, 23, 42, 0.4) 100%
+    rgba(15, 23, 42, 0.8) 0%,
+    rgba(15, 23, 42, 0.3) 100%
   );
-  z-index: -1;
+  z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -44,7 +65,48 @@
   height: 100%;
 }
 
-/* BARRA DE FILTROS (Mantido Design) */
+/* Conteúdo do Texto (Título) */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding-top: 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.packages-hero h1,
+.roteiro-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.packages-hero p {
+  font-size: 1.3rem;
+  color: #e2e8f0;
+  font-weight: 300;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.roteiro-hero .eyebrow {
+  color: #d4af37;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* ------------------------------------------------------------
+   2. BARRA DE FILTROS (PÁGINA PRINCIPAL)
+   ------------------------------------------------------------ */
 .filter-bar-container {
   margin-top: -30px;
   position: relative;
@@ -61,51 +123,31 @@
   gap: 10px;
 }
 .filter-btn {
-  /* Remove a cor de fundo padrão (deixa transparente) */
   background: transparent;
-
-  /* Remove a borda padrão cinza/preta dos botões */
   border: none;
-
-  /* Espaço interno: 10px em cima/baixo e 25px nas laterais (deixa o botão gordinho) */
   padding: 10px 25px;
-
-  /* Arredonda as bordas para criar o formato de "pílula" */
   border-radius: 25px;
-
-  /* Define a fonte do texto */
   font-family: "Lato", sans-serif;
-
-  /* Deixa a letra em negrito (bold) */
   font-weight: 700;
-
-  /* Cor do texto (cinza escuro) */
   color: #666;
-
-  /* Transforma a setinha do mouse em "mãozinha" para indicar clique */
   cursor: pointer;
-
-  /* Faz a mudança de cor ao passar o mouse ser suave (leva 0.3 segundos) */
   transition: all 0.3s ease;
-
-  /* --- AS NOVAS LINHAS --- */
-
-  /* Garante que não tenha o sublinhado padrão de links (links azuis com traço embaixo) */
   text-decoration: none;
-
-  /* Permite que o link tenha altura e margem, comportando-se como um bloco de botão */
   display: inline-block;
 }
 .filter-btn:hover,
 .filter-btn.active {
-  background: #d4af37; /* Dourado */
+  background: #d4af37;
   color: #fff;
 }
 
-/* DESTAQUE (CARD GRANDE - Mantido Design) */
+/* ------------------------------------------------------------
+   3. DESTAQUES E CARDS (SEU DESIGN MANTIDO)
+   ------------------------------------------------------------ */
 .section-padding {
   padding: 80px 0;
 }
+
 .section-label {
   text-align: center;
   font-family: "Lato", sans-serif;
@@ -115,6 +157,7 @@
   margin-bottom: 30px;
   font-weight: 700;
 }
+
 .featured-card {
   display: flex;
   background: #fff;
@@ -123,26 +166,22 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   flex-wrap: wrap;
 }
-/* Container da imagem */
+
 .featured-image {
-  flex: 1; /* Ocupa 50% do espaço */
+  flex: 1;
   position: relative;
   overflow: hidden;
-  height: 100%; /* Força a altura a acompanhar o texto */
-  min-height: 400px; /* Garante altura mínima se tiver pouco texto */
+  height: 100%;
+  min-height: 400px;
 }
-
-/* A Imagem em si */
 .featured-image img {
   width: 100%;
   height: 100%;
-
-  /* A MÁGICA DO ENCAIXE */
-  object-fit: cover; /* Cobre todo o espaço sem deformar */
-  object-position: center top; /* Prioriza mostrar o TOPO e o CENTRO (bom para paisagens e pessoas) */
-
+  object-fit: cover;
+  object-position: center top;
   transition: transform 0.5s ease;
 }
+
 .date-badge {
   position: absolute;
   top: 30px;
@@ -194,6 +233,7 @@
   align-items: center;
   gap: 8px;
 }
+
 .featured-info h2 {
   font-family: "Playfair Display", serif;
   font-size: 2.5rem;
@@ -207,6 +247,7 @@
   color: #555;
   margin-bottom: 30px;
 }
+
 .highlights {
   background: #f9f9f9;
   padding: 25px;
@@ -231,6 +272,7 @@
 .highlights i {
   color: #d4af37;
 }
+
 .btn-primary {
   display: inline-block;
   background: #1a1a1a;
@@ -249,38 +291,30 @@
   transform: translateY(-3px);
 }
 
-/* Destaque "Dark Premium" para Guia - pode usar no item que tem gui no roteiro ou na class destaque guia*/
+/* Destaque "Dark Premium" para Guia */
 .destaque-guia {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-
-  /* CORES DE ALTO CONTRASTE */
-  background-color: #0f172a; /* Fundo Escuro (Azul Profundo) */
-  color: #ffd700; /* Dourado mais vivo/amarelo para ler melhor no escuro */
-  border: 1px solid #d4af37; /* Borda Dourada */
-
-  /* Formato */
-  padding: 6px 14px; /* Um pouco mais encorpado */
-  border-radius: 50px; /* Bem redondo nas pontas */
+  background-color: #0f172a;
+  color: #ffd700;
+  border: 1px solid #d4af37;
+  padding: 6px 14px;
+  border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */
-
-  /* Animação de "Glow" (Brilho) */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   animation: pulseGlow 2s infinite ease-in-out;
 }
-
-/* Animação que faz a borda brilhar */
 @keyframes pulseGlow {
   0% {
     box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
     transform: scale(1);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); /* O anel de brilho se expande */
+    box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
     transform: scale(1.02);
   }
   100% {
@@ -289,7 +323,9 @@
   }
 }
 
-/* --- NOVO: LISTA EM CASCATA PARA OS CONTINENTES --- */
+/* ------------------------------------------------------------
+   4. LISTA DE ROTEIROS (CASCATA)
+   ------------------------------------------------------------ */
 .list-title {
   font-family: "Playfair Display", serif;
   font-size: 2rem;
@@ -301,7 +337,7 @@
 .roteiros-lista {
   display: flex;
   flex-direction: column;
-  gap: 0; /* Cascata grudada */
+  gap: 0;
 }
 .roteiro-item {
   display: flex;
@@ -314,8 +350,8 @@
   transition: all 0.3s ease;
 }
 .roteiro-item:hover {
-  background: #fdfaf3; /* Fundo levemente dourado */
-  padding-left: 35px; /* Efeito de deslizar */
+  background: #fdfaf3;
+  padding-left: 35px;
 }
 .roteiro-data {
   font-family: "Lato", sans-serif;
@@ -342,9 +378,144 @@
   font-size: 1.2rem;
 }
 
-/* Responsividade para Celulares (max-width: 768px) */
+/* ------------------------------------------------------------
+   5. LAYOUT INTERNO DOS ROTEIROS (Grid + Sidebar)
+   *Necessário para páginas como china.html, grecia.html, etc*
+   ------------------------------------------------------------ */
+.roteiro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+.roteiro-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+}
+
+/* Texto Esquerda */
+.roteiro-texto h2 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #d4af37;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+.roteiro-texto p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.destaques-lista {
+  list-style: none;
+  margin: 30px 0;
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+.destaques-lista li {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.destaques-lista li i {
+  color: #d4af37;
+}
+
+/* Sidebar Direita (Card de Preço) */
+.roteiro-sidebar {
+  position: relative;
+}
+.resumo-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  position: sticky;
+  top: 100px;
+}
+.preco-label {
+  font-size: 0.9rem;
+  color: #888;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+}
+.preco-valor {
+  font-size: 2.5rem;
+  color: #0f172a;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  display: block;
+  margin-bottom: 20px;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.info-item i {
+  font-size: 1.5rem;
+  color: #d4af37;
+}
+.info-texto span {
+  display: block;
+  font-size: 0.8rem;
+  color: #888;
+}
+.info-texto strong {
+  font-size: 1rem;
+  color: #334155;
+}
+
+.btn-comprar {
+  background-color: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  width: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+}
+.btn-comprar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+  background-color: #20bd5a;
+}
+
+/* ------------------------------------------------------------
+   6. RESPONSIVIDADE GERAL
+   ------------------------------------------------------------ */
+@media (max-width: 900px) {
+  /* Grid de roteiro vira 1 coluna */
+  .roteiro-grid {
+    grid-template-columns: 1fr;
+  }
+  .resumo-card {
+    position: static;
+    margin-top: 40px;
+  }
+}
+
 @media (max-width: 768px) {
-  /* --- 1. O que você já tinha (MANTIDO) --- */
+  /* O QUE JÁ TINHA */
   .featured-card {
     flex-direction: column;
   }
@@ -357,15 +528,30 @@
     display: none;
   }
 
-  /* --- 2. O NOVO: Ajuste da Imagem do Topo (Hero) --- */
-  .packages-hero {
-    /* No celular, usamos a altura da tela (85%) em vez de 700px fixos */
-    height: 85vh;
-    max-height: 800px;
+  /* NOVO HERO RESPONSIVO */
+  .packages-hero,
+  .roteiro-hero {
+    height: 75vh;
   }
 
-  .packages-hero .hero-bg {
-    /* Foca no topo da imagem para não cortar cabeças/avião */
-    background-position: center top;
+  .hero-content {
+    /* Ajuste essencial para o texto não ficar atrás do menu */
+    padding-top: 140px;
+    padding-bottom: 40px;
+  }
+
+  .packages-hero h1,
+  .roteiro-hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  /* --- AJUSTE SOLICITADO PARA OS DESTAQUES NO MOBILE --- */
+  .destaques-lista li {
+    align-items: flex-start; /* Joga o ícone para o topo */
+  }
+  .destaques-lista li i {
+    margin-top: 5px; /* Alinha com a primeira linha de texto */
+    flex-shrink: 0; /* Garante que o ícone não diminua */
   }
 }
