@@ -535,7 +535,6 @@
   }
 
   .hero-content {
-    /* Ajuste essencial para o texto não ficar atrás do menu */
     padding-top: 140px;
     padding-bottom: 40px;
   }
@@ -546,17 +545,17 @@
     line-height: 1.2;
   }
 
-  /* --- AJUSTE DESTAQUES NO MOBILE (QUEBRA DE LINHA) --- */
+  /* --- CORREÇÃO DEFINITIVA DA LISTA --- */
   .destaques-lista li {
-    /* Transforma cada item em uma coluna vertical */
-    flex-direction: column;
+    /* Mantém lado a lado, mas alinha no topo */
+    flex-direction: row;
     align-items: flex-start;
-    gap: 5px; /* Espaço entre o ícone e o texto */
+    gap: 12px;
   }
 
-  /* O Ícone agora fica sozinho na linha de cima (ou junto com um título se tiver) */
   .destaques-lista li i {
-    margin-bottom: 5px; /* Empurra o texto para baixo */
-    font-size: 1.2rem; /* Pode aumentar um pouco o ícone para destaque */
+    /* Desce o ícone uns pixels para alinhar com a letra maiúscula */
+    margin-top: 5px;
+    flex-shrink: 0; /* Trava o tamanho do ícone */
   }
 }
