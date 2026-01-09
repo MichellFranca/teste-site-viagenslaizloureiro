@@ -5,25 +5,30 @@
 /* ------------------------------------------------------------
    1. HEROS (TOPO)
    ------------------------------------------------------------ */
-
 .hero-bg-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
   z-index: 0;
-}
-.hero-bg-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  overflow: hidden;
 }
 
+.hero-bg-container img {
+  width: 100% !important;
+  height: 100% !important;
+  /* O object-fit: cover garante que a foto 1920x1080 
+     se ajuste ao corte de 65vh sem esticar nem achatar */
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+}
+
+/* HERO PRINCIPAL (PACOTES) */
 .packages-hero {
   position: relative;
-  height: 700px;
+  height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,9 +38,10 @@
   overflow: hidden;
 }
 
+/* HERO INTERNO (ROTEIROS) */
 .roteiro-hero {
   position: relative;
-  height: 65vh;
+  height: 65vh; /* Altura ideal para roteiros */
   min-height: 500px;
   display: flex;
   align-items: center;
@@ -100,7 +106,7 @@
 }
 
 /* ------------------------------------------------------------
-   2. BARRA DE FILTROS
+   2. BARRA DE FILTROS & OUTROS
    ------------------------------------------------------------ */
 .filter-bar-container {
   margin-top: -30px;
@@ -136,9 +142,6 @@
   color: #fff;
 }
 
-/* ------------------------------------------------------------
-   3. DESTAQUES E CARDS
-   ------------------------------------------------------------ */
 .section-padding {
   padding: 80px 0;
 }
@@ -152,6 +155,7 @@
   font-weight: 700;
 }
 
+/* CARDS DESTAQUE (HOME PACOTES) */
 .featured-card {
   display: flex;
   background: #fff;
@@ -174,7 +178,6 @@
   object-position: center top;
   transition: transform 0.5s ease;
 }
-
 .date-badge {
   position: absolute;
   top: 30px;
@@ -226,7 +229,6 @@
   align-items: center;
   gap: 8px;
 }
-
 .featured-info h2 {
   font-family: "Playfair Display", serif;
   font-size: 2.5rem;
@@ -241,7 +243,6 @@
   margin-bottom: 30px;
 }
 
-/* ESTILO PADRÃO (DESKTOP) DA LISTA */
 .highlights {
   background: #f9f9f9;
   padding: 25px;
@@ -285,41 +286,7 @@
   transform: translateY(-3px);
 }
 
-/* Destaque "Dark Premium" */
-.destaque-guia {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #0f172a;
-  color: #ffd700;
-  border: 1px solid #d4af37;
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  animation: pulseGlow 2s infinite ease-in-out;
-}
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
-    transform: scale(1.02);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
-    transform: scale(1);
-  }
-}
-
-/* ------------------------------------------------------------
-   4. LISTA DE ROTEIROS (CASCATA)
-   ------------------------------------------------------------ */
+/* LISTA DE ROTEIROS (CASCATA) */
 .list-title {
   font-family: "Playfair Display", serif;
   font-size: 2rem;
@@ -373,7 +340,7 @@
 }
 
 /* ------------------------------------------------------------
-   5. LAYOUT INTERNO DOS ROTEIROS
+   5. LAYOUT INTERNO DOS ROTEIROS (Grid + Sidebar)
    ------------------------------------------------------------ */
 .roteiro-container {
   max-width: 1200px;
@@ -385,7 +352,6 @@
   grid-template-columns: 2fr 1fr;
   gap: 60px;
 }
-
 .roteiro-texto h2 {
   font-size: 2rem;
   color: #0f172a;
@@ -399,27 +365,6 @@
   color: #555;
   line-height: 1.8;
   margin-bottom: 20px;
-}
-
-/* LISTA DE DESTAQUES (PADRÃO DESKTOP) */
-.destaques-lista {
-  list-style: none;
-  margin: 30px 0;
-  background: #f8fafc;
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-}
-.destaques-lista li {
-  margin-bottom: 15px;
-  font-weight: 600;
-  color: #334155;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.destaques-lista li i {
-  color: #d4af37;
 }
 
 .roteiro-sidebar {
@@ -470,7 +415,6 @@
   font-size: 1rem;
   color: #334155;
 }
-
 .btn-comprar {
   background-color: #25d366;
   color: #fff;
@@ -493,8 +437,36 @@
   box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
 }
 
+/* --- LISTA DE DESTAQUES (Estilo Padrão Desktop) --- */
+.destaques-lista {
+  list-style: none;
+  margin: 30px 0;
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+.destaques-lista li {
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #334155;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+.destaques-lista li i {
+  color: #d4af37;
+  font-size: 1.1rem;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+/* No PC, o texto comporta-se normalmente */
+.destaques-lista .texto-destaque {
+  flex: 1;
+}
+
 /* ------------------------------------------------------------
-   6. RESPONSIVIDADE GERAL
+   6. RESPONSIVIDADE (MOBILE)
    ------------------------------------------------------------ */
 @media (max-width: 900px) {
   .roteiro-grid {
@@ -507,19 +479,7 @@
 }
 
 @media (max-width: 768px) {
-  .featured-card {
-    flex-direction: column;
-  }
-  .roteiro-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-  .roteiro-seta {
-    display: none;
-  }
-
-  /* Hero */
+  /* Hero e Menu */
   .packages-hero,
   .roteiro-hero {
     height: 75vh;
@@ -533,44 +493,56 @@
     font-size: 2.2rem;
     line-height: 1.2;
   }
+  .featured-card {
+    flex-direction: column;
+  }
+  .roteiro-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .roteiro-seta {
+    display: none;
+  }
 
   /* --- MÁGICA DOS DESTAQUES NO MOBILE (ESTILO CARTÃO) --- */
 
-  /* 1. Removemos a caixa cinza grande e deixamos transparente */
   .destaques-lista {
-    background: transparent;
+    background: transparent; /* Remove o fundo cinza geral */
     padding: 0;
     border: none;
   }
 
-  /* 2. Cada ITEM da lista vira um "Cartão" Branco */
   .destaques-lista li {
     display: flex;
-    flex-direction: column; /* Coloca o ícone EM CIMA do texto */
-    align-items: center; /* Centraliza o ícone */
+    flex-direction: column; /* Coloca o ícone EM CIMA */
+    align-items: center; /* Centraliza tudo horizontalmente */
 
     background: #fff; /* Fundo Branco */
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 15px; /* Espaço entre os cartões */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Sombra leve */
-
-    /* Alinhamento do texto */
-    text-align: justify; /* Texto quadradinho */
-    line-height: 1.6;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #eee; /* Borda fininha */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03); /* Sombra suave */
+    margin-bottom: 20px;
   }
 
-  /* 3. Estilo do Ícone (Destaque Central) */
+  /* O Ícone */
   .destaques-lista li i {
-    font-size: 1.5rem; /* Ícone Grande */
-    color: #d4af37;
-    margin-bottom: 15px; /* Empurra o texto para baixo */
-
-    /* O Sublinhado Dourado */
+    font-size: 1.6rem;
+    margin-top: 0;
+    margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 3px solid #d4af37;
-    width: 40px; /* Largura do sublinhado */
+    border-bottom: 3px solid #d4af37; /* O Sublinhado Dourado */
+    width: 40px;
     text-align: center;
+  }
+
+  /* O Texto (agora dentro da div, obedece ao alinhamento) */
+  .destaques-lista .texto-destaque {
+    text-align: justify; /* Texto justificado */
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
   }
 }
