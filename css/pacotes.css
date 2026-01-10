@@ -546,3 +546,126 @@
     color: #444;
   }
 }
+
+/* ============================================================
+   NOVA SEÇÃO HUB (GRID DE CONTINENTES) - VERSÃO MAPAS
+   ============================================================ */
+
+.categories-section {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.categories-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza os cartões (3 cima, 2 baixo) */
+  gap: 30px; /* Espaço entre os cartões */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-card {
+  position: relative;
+  /* Cálculo matemático para caber 3 por linha perfeitamente */
+  flex: 0 1 calc(33.333% - 20px);
+  height: 500px; /* Altura alta e imponente */
+  border-radius: 15px;
+  overflow: hidden;
+  text-decoration: none;
+
+  /* Estilo especial para MAPAS (Fundo cinza e borda) */
+  background-color: #eeeeee;
+  border: 1px solid #ddd;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-10px); /* Sobe ao passar o mouse */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  border-color: #d4af37; /* Borda fica dourada no hover */
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que o mapa preencha tudo */
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.category-card:hover img {
+  transform: scale(1.05); /* Zoom suave */
+}
+
+/* O Gradiente Preto embaixo para o texto aparecer */
+.category-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradiente mais forte no rodapé para leitura */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 60%);
+  display: flex;
+  align-items: flex-end; /* Texto cola no rodapé */
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.category-title {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* RESPONSIVIDADE (Ajuste para Celular e Tablet) */
+@media (max-width: 992px) {
+  .category-card {
+    flex: 0 1 calc(50% - 15px); /* Tablet: 2 por linha */
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-card {
+    flex: 0 1 100%; /* Celular: 1 por linha (Ocupa tudo) */
+    height: 350px;
+  }
+}
+
+/* ============================================================
+   EFEITO MAPA MUNDI OVAL (VIGNETA)
+   ============================================================ */
+
+/* 1. Ajuste na Imagem para focar no Mapa */
+.hero-mapa img {
+  object-fit: cover;
+  object-position: center center; /* Garante que o mapa fique no meio */
+  transform: scale(1.1); /* Um leve zoom para cortar bordas desnecessárias */
+}
+
+/* 2. O Segredo do Oval: Uma sombra radial */
+.overlay-mapa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* Isso cria um círculo transparente no meio e preto nas bordas.
+     Mude 'rgba(0,0,0,0.8)' para a cor que quiser nas bordas.
+  */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.2) 0%,
+    /* Centro (Claro) */ rgba(0, 0, 0, 0.4) 50%,
+    /* Meio termo */ rgba(0, 0, 0, 0.9) 100% /* Bordas (Escuro/Oval) */
+  );
+}
