@@ -6,26 +6,25 @@
 
 /* --- HERO DO BLOG --- */
 .blog-hero {
-  height: 60vh;
-  min-height: 400px;
+  height: 800px !important; /* Força os 800px que funcionaram nos outros */
+  min-height: 800px !important;
+  margin-top: -80px; /* Compensa o header fixo */
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--blog-white);
-  margin-top: -80px; /* Compensa o header fixo no desktop */
   overflow: hidden;
-  text-align: center;
 }
 
+/* Garante que a imagem de fundo não achate no Blog */
 .blog-hero .hero-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
+  background-size: cover !important;
+  background-position: center top !important; /* Mantém o foco no topo como você preferiu */
   z-index: -2;
 }
 
@@ -175,25 +174,32 @@
 }
 
 /* ============================================================
-   RESPONSIVIDADE E CORREÇÃO FINAL (MOBILE)
+   RESPONSIVIDADE E CORREÇÃO FINAL (MOBILE) - CORRIGIDO
    ============================================================ */
 
 @media screen and (max-width: 768px) {
   /* --- 1. CABEÇALHO (Ajuste de tamanho e cor) --- */
   header,
   .header-container {
-    background-color: #ffffff !important; /* Fundo Branco */
+    background-color: #ffffff !important;
     position: fixed !important;
     top: 0;
     width: 100%;
     z-index: 9999;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-    /* O SEGREDO DA PROPORÇÃO: Altura fixa e menos padding */
     height: 70px !important;
     padding: 0 20px !important;
     display: flex !important;
     align-items: center !important;
+  }
+
+  /* Centralização do Menu Mobile */
+  .nav-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 
   /* Força a logo a ficar pequena e delicada */
@@ -207,7 +213,7 @@
   .menu-toggle i,
   .hamburger,
   .nav-icon {
-    color: #1a1a1a !important; /* Ícone preto */
+    color: #1a1a1a !important;
     margin-top: 0 !important;
     font-size: 1.5rem !important;
   }
@@ -217,21 +223,29 @@
     color: #1a1a1a !important;
   }
 
-  /* --- 2. HERO (Espaço para o cabeçalho) --- */
+  /* --- 2. HERO (Proteção contra achatamento no Mobile) --- */
   .blog-hero {
     margin-top: 0;
-    padding-top: 90px !important; /* Espaço exato para o menu de 70px não cobrir */
-    height: auto;
-    min-height: 350px;
+    /* Em vez de auto, usamos 75% da altura da tela do celular */
+    height: 75vh !important;
+    min-height: 500px !important;
+    padding-top: 70px !important; /* Espaço do menu */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .blog-hero .hero-bg {
+    background-position: center top !important; /* Mantém o padrão top que você gostou */
   }
 
   .hero-content h1 {
-    font-size: 2rem;
+    font-size: 2.2rem !important; /* Tamanho ajustado para mobile */
     padding: 0 20px;
+    line-height: 1.2;
   }
 
   /* --- 3. CORREÇÃO DOS BOTÕES INVISÍVEIS --- */
-  /* Força a cor preta em todos os links dentro dos cards */
   .article-card a,
   .link-arrow,
   .read-more {
@@ -243,18 +257,18 @@
 
   .article-card i,
   .link-arrow i {
-    color: #d4af37 !important; /* Seta dourada */
+    color: #d4af37 !important;
   }
 
   /* --- 4. GRID E CARDS (Layout) --- */
   .blog-grid {
-    grid-template-columns: 1fr; /* Coluna única no celular */
+    grid-template-columns: 1fr;
     gap: 25px;
     padding: 30px 15px;
   }
 
   .card-image {
-    height: 200px;
+    height: 220px !important;
   }
 
   .card-content {
@@ -262,6 +276,14 @@
   }
 
   .card-content h3 {
-    font-size: 1.25rem;
+    font-size: 1.4rem !important;
+  }
+}
+
+/* --- AJUSTE EXTRA PARA DESKTOP (Garante os 800px) --- */
+@media screen and (min-width: 769px) {
+  .blog-hero {
+    height: 800px !important;
+    margin-top: -80px; /* Compensa o menu transparente */
   }
 }
