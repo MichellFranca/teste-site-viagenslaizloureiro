@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Pacotes de Viagens e Cruzeiros - Laiz Loureiro"
+      content="Pacotes de Viagens para Europa - Laiz Loureiro"
     />
-    <title>Pacotes & Cruzeiros | Laiz Loureiro Travel Designer</title>
+    <title>Europa | Laiz Loureiro Travel Designer</title>
 
     <link rel="icon" href="favicolaiz.JPG" type="image/jpeg" />
 
@@ -62,121 +62,80 @@
     </header>
 
     <main>
-      <section
-        class="packages-hero"
-        style="position: relative; overflow: hidden"
-      >
-        <style>
-          /* Recorta a imagem em formato oval horizontal */
-          .recorte-oval {
-            width: 95%; /* Um pouco menor que a tela para ver a borda */
-            height: 90%;
-            margin: 0 auto; /* Centraliza */
-            /* O Segredo: Arredonda muito as laterais e pouco o topo */
-            border-radius: 50% / 20%;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); /* Sombra para dar destaque */
-            z-index: 0;
-          }
-
-          /* No celular, reduzimos o efeito para não cortar demais */
-          @media (max-width: 768px) {
-            .recorte-oval {
-              width: 100%;
-              height: 100%;
-              border-radius: 0; /* Remove o oval no celular para aproveitar espaço */
-            }
-          }
-
-          /* Sombra interna nas bordas da imagem */
-          .sombra-interna {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Cria a vigneta preta nas bordas */
-            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
-            pointer-events: none; /* Deixa clicar através */
-            z-index: 2;
-          }
-
-          .img-aviao-oval {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: scale(1.1); /* Zoom para preencher bem */
-          }
-        </style>
-
-        <div
-          class="hero-bg-container"
-          style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #0f172a;
-          "
-        >
-          <div class="recorte-oval">
-            <picture>
-              <source
-                media="(max-width: 768px)"
-                srcset="img/aviao-mobile.jpg"
-              />
-              <img
-                src="img/aviao.jpg"
-                alt="Viagens pelo Mundo"
-                class="img-aviao-oval"
-              />
-            </picture>
-            <div class="sombra-interna"></div>
-            <div class="overlay"></div>
-          </div>
+      <section class="packages-hero">
+        <div class="hero-bg-container">
+          <picture>
+            <source media="(max-width: 768px)" srcset="img/capri.jpg" />
+            <img src="img/capri.jpg" alt="Europa" />
+          </picture>
+          <div class="overlay"></div>
         </div>
 
-        <div class="hero-content" style="z-index: 3">
-          <h1>Pacotes de Viagens</h1>
-          <p>Experiências exclusivas desenhadas para você.</p>
+        <div class="hero-content">
+          <span class="eyebrow">Destinos</span>
+          <h1>Europa</h1>
+          <p>Descubra o charme, a história e a cultura do velho continente.</p>
         </div>
       </section>
 
-      <section class="categories-section">
+      <section class="section-padding">
         <div class="container">
-          <div class="categories-grid">
-            <a href="pacotes-europa.html" class="category-card">
-              <img src="img/pacotes-europa.jpg" alt="Mapa Europa" />
-              <div class="category-overlay">
-                <span class="category-title">Europa</span>
+          <div style="margin-bottom: 30px">
+            <a
+              href="pacotes-de-viagens.html"
+              style="text-decoration: none; color: #333; font-weight: bold"
+            >
+              <i class="fas fa-arrow-left"></i> Voltar para Continentes
+            </a>
+          </div>
+
+          <h3 class="list-title">Próximas Saídas para Europa</h3>
+
+          <div class="roteiros-lista">
+            <a href="leste-europeu.html" class="roteiro-item">
+              <div class="roteiro-data">31 MAI 2026</div>
+              <div class="roteiro-nome">
+                <h4>Leste Europeu</h4>
+                <span>Berlim, Praga, Viena, Budapeste e Cracóvia</span>
+              </div>
+              <div class="roteiro-seta">
+                <i class="fas fa-chevron-right"></i>
               </div>
             </a>
 
-            <a href="pacotes-americas.html" class="category-card">
-              <img src="img/pacotes-america.jpg" alt="Mapa Américas" />
-              <div class="category-overlay">
-                <span class="category-title">Américas</span>
+            <a href="escandinavia-balticos.html" class="roteiro-item">
+              <div class="roteiro-data">16 JUL 2026</div>
+              <div class="roteiro-nome">
+                <h4>Escandinávia & Países Bálticos</h4>
+                <span
+                  >Copenhague, Fiordes, Oslo, Estocolmo e Capitais
+                  Bálticas</span
+                >
+              </div>
+              <div class="roteiro-seta">
+                <i class="fas fa-chevron-right"></i>
               </div>
             </a>
 
-            <a href="pacotes-asia.html" class="category-card">
-              <img src="img/pacotes-asiaeoriente.jpg" alt="Mapa Ásia" />
-              <div class="category-overlay">
-                <span class="category-title">Ásia & Oriente</span>
+            <a href="grecia-turquia.html" class="roteiro-item">
+              <div class="roteiro-data">AGO 2026</div>
+              <div class="roteiro-nome">
+                <h4>Grécia e Turquia</h4>
+                <span>Paris, Atenas, Mykonos, Istambul e muito mais</span>
+              </div>
+              <div class="roteiro-seta">
+                <i class="fas fa-chevron-right"></i>
               </div>
             </a>
 
-            <a href="pacotes-brasil.html" class="category-card">
-              <img src="img/pacotes-brasil.jpg" alt="Mapa Brasil" />
-              <div class="category-overlay">
-                <span class="category-title">Brasil</span>
+            <a href="costa-amalfitana.html" class="roteiro-item">
+              <div class="roteiro-data">OUT 2026</div>
+              <div class="roteiro-nome">
+                <h4>Costa Amalfitana & Itália</h4>
+                <span>Roma, Capri, Sorrento e Puglia</span>
               </div>
-            </a>
-
-            <a href="cruzeiros.html" class="category-card">
-              <img src="img/pacotes-cruzeiro.jpg" alt="Cruzeiros" />
-              <div class="category-overlay">
-                <span class="category-title">Cruzeiros</span>
+              <div class="roteiro-seta">
+                <i class="fas fa-chevron-right"></i>
               </div>
             </a>
           </div>
@@ -194,10 +153,7 @@
               class="logo-img-footer"
             />
           </a>
-          <p>
-            Sou especializada em transformar viagens em experiências de vida
-            inesquecíveis.
-          </p>
+          <p>Transformando sonhos em destinos.</p>
         </div>
         <div class="footer-links">
           <h4>Explorar</h4>
