@@ -17,6 +17,12 @@
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   --transition: all 0.3s ease;
 }
+/*
+--color-primary: #0f172a;
+  --color-accent: #d4af37;
+  --color-text: #334155;
+  --color-bg-light: #f8f9fa;
+  --color-white: #ffffff;*/
 
 /* ============================================================
    2. RESET GLOBAL
@@ -83,7 +89,7 @@ h2 {
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-accent);
   display: block;
