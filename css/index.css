@@ -2,6 +2,25 @@
    1. CONFIGURAÇÕES E VARIÁVEIS (DESIGN SYSTEM)
    ============================================================ */
 :root {
+  /* Paleta Nova: Mais quente e sofisticada */
+  --color-primary: #182535; /* Azul Petróleo Profundo (menos preto, mais elegante) */
+  --color-accent: #c6a87c; /* Dourado Fosco (Champanhe) - Menos amarelo */
+  --color-text: #4a4a4a; /* Cinza Quente para leitura */
+  --color-bg-body: #f9f8f4; /* Off-White (Cor de Areia/Papel) - Fundo geral */
+  --color-white: #ffffff; /* Branco Puro (para os cartões) */
+
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Lato", sans-serif;
+
+  --container-width: 1200px;
+  --header-height: 90px; /* Cabeçalho um pouco maior */
+  --radius: 8px; /* Bordas menos arredondadas (mais sério/luxo) */
+  --shadow-soft: 0 15px 40px rgba(0, 0, 0, 0.05); /* Sombra difusa e leve */
+  --transition: all 0.4s ease;
+}
+
+/*
+:root2{
   --color-primary: #0f172a;
   --color-accent: #d4af37;
   --color-text: #334155;
@@ -17,14 +36,8 @@
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   --transition: all 0.3s ease;
 }
-/*
---color-primary: #0f172a;
-  --color-accent: #d4af37;
-  --color-text: #334155;
-  --color-bg-light: #f8f9fa;
-  --color-white: #ffffff;*/
-
-/* ============================================================
+/* 
+   ============================================================
    2. RESET GLOBAL
    ============================================================ */
 * {
@@ -634,6 +647,27 @@ h2 {
   font-size: 0.9rem;
 }
 
+.social-icons {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: 0.3s;
+}
+.social-icons a:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 /* ============================================================
    7. RESPONSIVIDADE (MOBILE)
    ============================================================ */
@@ -673,8 +707,10 @@ h2 {
     padding: 0 15px;
   }
   .logo-img {
-    height: 35px;
+    height: 50px; /* Logo um pouco maior */
+    width: auto;
   }
+
   .nav-icon,
   .nav-close {
     display: block;
